@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>غاية المريد في علم التجويد — مركز تعليمي تفاعلي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6e3;
+    --light: #fff9ee;
+    --gold: #c8922a;
+    --gold-light: #f0c060;
+    --gold-pale: #fef3cd;
+    --green: #1a5c38;
+    --green-mid: #2e7d52;
+    --green-light: #e8f5ee;
+    --green-pale: #f0faf4;
+    --teal: #1a6b6b;
+    --teal-light: #e0f4f4;
+    --burgundy: #7b1f2e;
+    --burgundy-light: #fdeef0;
+    --blue: #1e4d8c;
+    --blue-light: #e8f0fc;
+    --purple: #5c2d7a;
+    --purple-light: #f3ecfa;
+    --orange: #c15a00;
+    --orange-light: #fff0e0;
+    --text: #2c1810;
+    --text-light: #5a4a3a;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+    direction: rtl;
+  }
+
+  /* ====== HEADER ====== */
+  .header {
+    background: linear-gradient(135deg, var(--green) 0%, #0d3d23 50%, #0a2e1a 100%);
+    padding: 50px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .header-bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+    letter-spacing: 0.05em;
+  }
+  .header h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .header-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+  .header-author {
+    display: inline-block;
+    background: rgba(200,146,42,0.25);
+    border: 1px solid var(--gold-light);
+    color: var(--gold-light);
+    padding: 6px 22px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  .header-verse {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 18px;
+    font-style: italic;
+  }
+
+  /* ====== NAV TABS ====== */
+  .nav-wrapper {
+    background: #fff;
+    border-bottom: 3px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 10px;
+    gap: 0;
+    scrollbar-width: none;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-light);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover { color: var(--green); background: var(--green-pale); }
+  .nav-tab.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+    background: var(--green-pale);
+  }
+  .nav-tab .tab-icon { font-size: 1rem; }
+
+  /* ====== MAIN CONTAINER ====== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 16px;
+  }
+
+  /* ====== SECTIONS ====== */
+  .section { display: none; animation: fadeIn 0.4s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ====== SECTION HEADER ====== */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed var(--gold-light);
+  }
+  .section-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .section-title { font-size: 1.5rem; font-weight: 700; color: var(--green); }
+  .section-desc { font-size: 0.9rem; color: var(--text-light); margin-top: 3px; }
+
+  /* ====== CARDS GRID ====== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 0 16px 16px 0;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .card-icon { font-size: 2rem; margin-bottom: 10px; }
+  .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .card-body { font-size: 0.88rem; color: var(--text-light); line-height: 1.9; }
+
+  .card.green::before { background: var(--green); }
+  .card.gold::before { background: var(--gold); }
+  .card.teal::before { background: var(--teal); }
+  .card.burgundy::before { background: var(--burgundy); }
+  .card.blue::before { background: var(--blue); }
+  .card.purple::before { background: var(--purple); }
+  .card.orange::before { background: var(--orange); }
+
+  /* ====== RULE BOX ====== */
+  .rule-box {
+    background: var(--green-light);
+    border: 1px solid #b3d9c4;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .rule-box h3 {
+    color: var(--green);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rule-box p, .rule-box li { font-size: 0.9rem; color: var(--text-light); line-height: 2; }
+  .rule-box ul { padding-right: 18px; }
+
+  .info-box {
+    background: var(--gold-pale);
+    border: 1px solid #e8c870;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .info-box h3 { color: var(--gold); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .info-box p { font-size: 0.88rem; color: #5a4a20; }
+
+  .warning-box {
+    background: var(--burgundy-light);
+    border: 1px solid #e8b0b8;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .warning-box h3 { color: var(--burgundy); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .warning-box p { font-size: 0.88rem; color: #5a1c26; }
+
+  /* ====== QURAN TEXT ====== */
+  .quran-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: var(--green);
+    text-align: center;
+    padding: 18px;
+    background: var(--green-pale);
+    border-radius: 12px;
+    border: 1px solid #c0e0d0;
+    margin: 12px 0;
+  }
+  .quran-ref { font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 6px; display: block; font-family: 'Cairo', sans-serif; }
+
+  /* ====== TABLE ====== */
+  .rules-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .rules-table th {
+    background: var(--green);
+    color: #fff;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .rules-table td {
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    border-bottom: 1px solid #f0ebe0;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .rules-table tr:last-child td { border-bottom: none; }
+  .rules-table tr:nth-child(even) td { background: var(--cream); }
+  .rules-table tr:hover td { background: var(--green-light); }
+  .quran-cell { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--green); }
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-gold { background: var(--gold-pale); color: #8a5a00; }
+  .badge-teal { background: var(--teal-light); color: var(--teal); }
+  .badge-burgundy { background: var(--burgundy-light); color: var(--burgundy); }
+
+  /* ====== ACCORDION ====== */
+  .accordion { margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+  .accordion-header {
+    background: #fff;
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: all 0.3s;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .accordion-header:hover { background: var(--green-pale); color: var(--green); }
+  .accordion-header.open { background: var(--green); color: #fff; }
+  .accordion-arrow { transition: transform 0.3s; font-style: normal; }
+  .accordion-header.open .accordion-arrow { transform: rotate(180deg); }
+  .accordion-body {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-top: none;
+    font-size: 0.9rem;
+    line-height: 2;
+  }
+  .accordion-body.open { display: block; }
+
+  /* ====== QUIZ ====== */
+  .quiz-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .quiz-q {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text);
+    display: flex;
+    gap: 12px;
+  }
+  .quiz-num {
+    background: var(--green);
+    color: #fff;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .quiz-options { display: grid; gap: 10px; }
+  .quiz-option {
+    background: var(--cream);
+    border: 2px solid #e0d8cc;
+    border-radius: 10px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .quiz-option:hover { border-color: var(--green); background: var(--green-pale); }
+  .quiz-option.correct { border-color: var(--green); background: var(--green-light); color: var(--green); font-weight: 700; }
+  .quiz-option.wrong { border-color: var(--burgundy); background: var(--burgundy-light); color: var(--burgundy); }
+  .quiz-option .opt-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #e0d8cc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .quiz-option.correct .opt-letter { background: var(--green); color: #fff; }
+  .quiz-option.wrong .opt-letter { background: var(--burgundy); color: #fff; }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: var(--green-light); color: var(--green); border: 1px solid #b3d9c4; }
+  .quiz-feedback.wrong { background: var(--burgundy-light); color: var(--burgundy); border: 1px solid #e8b0b8; }
+  .quiz-score {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--green), #0d3d23);
+    border-radius: 16px;
+    color: #fff;
+    margin-top: 20px;
+    display: none;
+  }
+  .quiz-score.show { display: block; }
+  .quiz-score .score-num { font-size: 3rem; font-weight: 900; color: var(--gold-light); }
+  .quiz-score .score-msg { font-size: 1.1rem; margin-top: 8px; }
+
+  /* ====== LETTERS MAP ====== */
+  .letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .letter-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+  }
+  .letter-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .letter-card.selected { border-color: var(--green); background: var(--green-pale); }
+  .letter-arabic { font-family: 'Amiri', serif; font-size: 2rem; color: var(--green); }
+  .letter-name { font-size: 0.72rem; color: var(--text-light); margin-top: 4px; }
+  .letter-makhraj { font-size: 0.68rem; color: var(--gold); font-weight: 600; margin-top: 2px; }
+
+  /* ====== LETTER DETAIL ====== */
+  .letter-detail {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-top: 16px;
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  .letter-detail.show { display: block; }
+  .letter-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--gold-light);
+  }
+  .letter-big { font-family: 'Amiri', serif; font-size: 4rem; color: var(--green); line-height: 1; }
+  .sifat-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .sifat-tag {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  /* ====== MEDD TABLE ====== */
+  .medd-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .medd-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--green);
+    transition: all 0.3s;
+  }
+  .medd-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .medd-name { font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+  .medd-harakaat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-pale);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #8a5a00;
+    margin-bottom: 10px;
+  }
+  .medd-def { font-size: 0.84rem; color: var(--text-light); line-height: 1.9; }
+  .medd-example { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--green); margin-top: 8px; }
+
+  /* ====== PROGRESS BAR ====== */
+  .progress-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .progress-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 10px; background: #e8e0d8; border-radius: 20px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 20px; transition: width 1s ease; }
+
+  /* ====== HERO STAT ====== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-bottom: 3px solid var(--green);
+  }
+  .stat-num { font-size: 2rem; font-weight: 900; color: var(--green); }
+  .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+
+  /* ====== TIMELINE ====== */
+  .timeline { position: relative; padding-right: 24px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green), var(--gold));
+  }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-dot {
+    position: absolute;
+    right: -20px;
+    top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--green);
+  }
+  .timeline-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: var(--shadow);
+    font-size: 0.9rem;
+  }
+  .timeline-title { font-weight: 700; color: var(--green); margin-bottom: 6px; }
+
+  /* ====== CHART ====== */
+  .chart-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .chart-title { font-weight: 700; color: var(--text); margin-bottom: 16px; font-size: 0.95rem; }
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-item { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 130px; flex-shrink: 0; font-size: 0.82rem; color: var(--text-light); text-align: right; }
+  .bar-track { flex: 1; height: 28px; background: var(--cream); border-radius: 20px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 20px; display: flex; align-items: center; padding-right: 10px; color: #fff; font-size: 0.78rem; font-weight: 700; transition: width 1.5s ease; }
+  .bar-val { width: 40px; text-align: left; font-size: 0.82rem; font-weight: 700; color: var(--text); }
+
+  /* ====== BTN ====== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-green { background: var(--green); color: #fff; }
+  .btn-green:hover { background: #0d3d23; transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { background: #a07020; }
+  .btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green); }
+  .btn-outline:hover { background: var(--green); color: #fff; }
+
+  /* ====== DIVIDER ====== */
+  .divider {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 30px);
+    height: 1px;
+    background: linear-gradient(to var(--side, right), var(--gold-light), transparent);
+  }
+  .divider::before { right: 0; --side: left; }
+  .divider::after { left: 0; }
+
+  /* ====== FOOTER ====== */
+  .footer {
+    background: var(--green);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 22px;
+    font-size: 0.82rem;
+    margin-top: 50px;
+  }
+  .footer span { color: var(--gold-light); }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .letters-grid { grid-template-columns: repeat(4, 1fr); }
+    .medd-cards { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .bar-label { width: 90px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <h1>غاية المريد في علم التجويد</h1>
+  <div class="header-sub">مركز تعليمي تفاعلي شامل</div>
+  <div class="header-author">تأليف: الشيخ عطية قابل نصر</div>
+  <div class="header-verse">﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾ — المزمل: ٤</div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrapper">
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('overview')" data-section="overview"><span class="tab-icon">🏠</span>نظرة عامة</div>
+    <div class="nav-tab" onclick="showSection('noon')" data-section="noon"><span class="tab-icon">ن</span>النون الساكنة</div>
+    <div class="nav-tab" onclick="showSection('meem')" data-section="meem"><span class="tab-icon">م</span>الميم الساكنة</div>
+    <div class="nav-tab" onclick="showSection('medd')" data-section="medd"><span class="tab-icon">📏</span>المد والقصر</div>
+    <div class="nav-tab" onclick="showSection('makharij')" data-section="makharij"><span class="tab-icon">🗣️</span>المخارج والصفات</div>
+    <div class="nav-tab" onclick="showSection('lam')" data-section="lam"><span class="tab-icon">ل</span>اللامات</div>
+    <div class="nav-tab" onclick="showSection('waqf')" data-section="waqf"><span class="tab-icon">⏸️</span>الوقف والابتداء</div>
+    <div class="nav-tab" onclick="showSection('qalqalah')" data-section="qalqalah"><span class="tab-icon">🔔</span>القلقلة</div>
+    <div class="nav-tab" onclick="showSection('tafkhim')" data-section="tafkhim"><span class="tab-icon">📣</span>التفخيم والترقيق</div>
+    <div class="nav-tab" onclick="showSection('ra')" data-section="ra"><span class="tab-icon">ر</span>أحكام الراء</div>
+    <div class="nav-tab" onclick="showSection('mindmap')" data-section="mindmap"><span class="tab-icon">🗺️</span>خريطة ذهنية</div>
+    <div class="nav-tab" onclick="showSection('quiz')" data-section="quiz"><span class="tab-icon">✏️</span>اختبر نفسك</div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- ====== OVERVIEW SECTION ====== -->
+  <div class="section active" id="section-overview">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5ee;">🏠</div>
+      <div>
+        <div class="section-title">نظرة عامة على علم التجويد</div>
+        <div class="section-desc">مدخل إلى أحكام تلاوة القرآن الكريم</div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">٤</div><div class="stat-label">أحكام النون الساكنة</div></div>
+      <div class="stat-box" style="border-color:var(--gold);"><div class="stat-num" style="color:var(--gold);">٣</div><div class="stat-label">أحكام الميم الساكنة</div></div>
+      <div class="stat-box" style="border-color:var(--teal);"><div class="stat-num" style="color:var(--teal);">١٤+</div><div class="stat-label">أنواع المد</div></div>
+      <div class="stat-box" style="border-color:var(--blue);"><div class="stat-num" style="color:var(--blue);">١٧</div><div class="stat-label">مخرجاً للحروف</div></div>
+      <div class="stat-box" style="border-color:var(--burgundy);"><div class="stat-num" style="color:var(--burgundy);">٣</div><div class="stat-label">مراتب التلاوة</div></div>
+    </div>
+
+    <div class="quran-text">
+      ﴿ الَّذِينَ آتَيْنَاهُمُ الْكِتَابَ يَتْلُونَهُ حَقَّ تِلَاوَتِهِ ﴾
+      <span class="quran-ref">سورة البقرة — آية ١٢١</span>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card green">
+        <div class="card-icon">📖</div>
+        <div class="card-title">تعريف التجويد</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> التحسين والإتقان.<br>
+          <strong>اصطلاحاً:</strong> إعطاء كلّ حرف حقّه ومستحقّه من الصفات والأحكام، بحيث تُؤدَّى الحروف من مخارجها الصحيحة مع مراعاة صفاتها.
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">حكم تعلّم التجويد</div>
+        <div class="card-body">
+          <strong>العلم به:</strong> فرض كفاية على الأمة.<br>
+          <strong>العمل به:</strong> فرض عين على كل مسلم عند تلاوة القرآن الكريم، لأن التلاوة بدون تجويد لحنٌ قد يُغيّر المعنى.
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">غاية التجويد</div>
+        <div class="card-body">
+          صون اللسان عن اللحن في كلام الله تعالى، وإيصال القرآن الكريم كما نزل على النبي ﷺ بالتواتر، محفوظاً في اللفظ والأداء.
+        </div>
+      </div>
+      <div class="card burgundy">
+        <div class="card-icon">⚠️</div>
+        <div class="card-title">اللحن وأقسامه</div>
+        <div class="card-body">
+          <strong>اللحن الجلي:</strong> خطأ ظاهر يُغيّر المعنى — محرّم.<br>
+          <strong>اللحن الخفي:</strong> إخلال بالصفات كترك الغنة أو قصر الممدود — مكروه.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ مراتب التلاوة ✦</div>
+
+    <div class="cards-grid">
+      <div class="card green">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">١ — الترتيل</div>
+        <div class="card-body">
+          قراءة القرآن بتأنٍّ واطمئنان مع مراعاة أحكام التجويد — <strong style="color:var(--green)">أفضل المراتب</strong>، وهي التي أمر الله بها في قوله: ﴿وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا﴾
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">🌾</div>
+        <div class="card-title">٢ — التدوير</div>
+        <div class="card-body">
+          قراءة بحالة متوسطة بين الاطمئنان والسرعة مع مراعاة الأحكام — <strong style="color:var(--gold)">جائزة</strong>.
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">🌊</div>
+        <div class="card-title">٣ — الحدر</div>
+        <div class="card-body">
+          قراءة القرآن بسرعة مع المحافظة على الأحكام — <strong style="color:var(--teal)">جائز</strong>، لكن يُحترز من الإفراط في السرعة.
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>🌟 فضل تلاوة القرآن</h3>
+      <p>قال النبي ﷺ: «مثل المؤمن الذي يقرأ القرآن مثل الأُترجة، ريحها طيب وطعمها طيب، ومثل المؤمن الذي لا يقرأ القرآن مثل التمرة، لا ريح لها وطعمها حلو».</p>
+    </div>
+  </div>
+
+  <!-- ====== NOON SECTION ====== -->
+  <div class="section" id="section-noon">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--green-light); font-size:1.8rem; font-family:'Amiri',serif; color:var(--green);">ن</div>
+      <div>
+        <div class="section-title">أحكام النون الساكنة والتنوين</div>
+        <div class="section-desc">أربعة أحكام رئيسية تحكم النون الساكنة والتنوين</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 تعريف</h3>
+      <p><strong>النون الساكنة:</strong> نون لا حركة لها، ثابتة في الوصل والوقف، في الأسماء والأفعال والحروف.<br>
+      <strong>التنوين:</strong> نون ساكنة زائدة تلحق آخر الاسم لفظاً لا خطاً وتثبت وصلاً وتسقط وقفاً.</p>
+    </div>
+
+    <!-- Accordion for 4 rules -->
+    <div class="accordion" id="acc-izhar">
+      <div class="accordion-header" onclick="toggleAccordion('acc-izhar')">
+        <span>🔵 الحكم الأول: الإظهار الحلقي</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف</h3>
+          <p>إخراج كل حرف من مخرجه من غير غنة ولا تشديد.</p>
+        </div>
+        <p><strong>حروفه الستة</strong> (من الحلق):</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;">
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">ء</span>
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">ه</span>
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">ع</span>
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">ح</span>
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">غ</span>
+          <span style="font-family:'Amiri',serif;font-size:1.8rem;background:var(--green-light);padding:10px 18px;border-radius:10px;color:var(--green);">خ</span>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">للحفظ: <strong>أخي هاك علماً حازه غير خاسر</strong></p>
+        <table class="rules-table">
+          <tr><th>حرف الإظهار</th><th>مع كلمة</th><th>مع كلمتين</th><th>مع التنوين</th></tr>
+          <tr><td class="quran-cell">ء</td><td class="quran-cell">﴿ويثنون﴾</td><td class="quran-cell">﴿مَنْ أعطى﴾</td><td class="quran-cell">﴿كتبٌ أنزلنه﴾</td></tr>
+          <tr><td class="quran-cell">ه</td><td class="quran-cell">﴿وهم يَنهون﴾</td><td class="quran-cell">﴿مَنْ هاجر﴾</td><td class="quran-cell">﴿جرفٍ هار﴾</td></tr>
+          <tr><td class="quran-cell">ع</td><td class="quran-cell">﴿والأنعام﴾</td><td class="quran-cell">﴿مِنْ علق﴾</td><td class="quran-cell">﴿واسعٌ عليم﴾</td></tr>
+          <tr><td class="quran-cell">ح</td><td class="quran-cell">﴿يَتحاكموا﴾</td><td class="quran-cell">﴿مَنْ حاد الله﴾</td><td class="quran-cell">﴿عزيزٌ حكيم﴾</td></tr>
+          <tr><td class="quran-cell">غ</td><td class="quran-cell">﴿فسيُغضَبون﴾</td><td class="quran-cell">﴿مِن غسلين﴾</td><td class="quran-cell">﴿قولاً غير﴾</td></tr>
+          <tr><td class="quran-cell">خ</td><td class="quran-cell">﴿والمنخنقة﴾</td><td class="quran-cell">﴿مَنْ خشى﴾</td><td class="quran-cell">﴿لطيفٌ خبير﴾</td></tr>
+        </table>
+        <div class="rule-box">
+          <h3>💡 سببه</h3>
+          <p>لأن النون والتنوين يخرجان من طرف اللسان، والحروف الستة تخرج من الحلق، وليس بينهما تقارب يستوجب الإدغام أو الإخفاء.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-idgham">
+      <div class="accordion-header" onclick="toggleAccordion('acc-idgham')">
+        <span>🟢 الحكم الثاني: الإدغام</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف</h3>
+          <p>إدخال حرف ساكن في حرف متحرك بحيث يصيران حرفاً واحداً مشدداً.</p>
+        </div>
+        <p><strong>حروفه ستة:</strong> (يرملون) — <strong>ي ر م ل و ن</strong></p>
+        <div style="margin:14px 0;">
+          <p style="margin-bottom:10px;">⚡ <strong>الإدغام بغنة</strong> — في: <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">ي ن م و</span></p>
+          <p>⚡ <strong>الإدغام بلا غنة</strong> — في: <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--teal);">ل ر</span></p>
+        </div>
+        <div class="warning-box">
+          <h3>⚠️ شرط الإدغام</h3>
+          <p>أن يكون في كلمتين لا في كلمة واحدة، فإن اجتمعا في كلمة واحدة وجب الإظهار، مثل: <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿الدنيا﴾، ﴿قنوان﴾، ﴿صنوان﴾، ﴿بنيان﴾</span></p>
+        </div>
+        <div class="info-box">
+          <h3>نوعا الإدغام</h3>
+          <p><strong>الإدغام الكامل:</strong> ذهاب الحرف وصفته معاً — عند اللام والراء.<br>
+          <strong>الإدغام الناقص:</strong> ذهاب الحرف وإبقاء صفته (الغنة) — عند الواو والياء.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-iqlab">
+      <div class="accordion-header" onclick="toggleAccordion('acc-iqlab')">
+        <span>🟡 الحكم الثالث: الإقلاب</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف</h3>
+          <p>قلب النون الساكنة أو التنوين ميماً خالصاً مع الغنة وإخفاء هذه الميم عند حرف <strong>الباء</strong>.</p>
+        </div>
+        <p style="margin-bottom:14px;">حرفه الوحيد: <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--gold-pale);padding:8px 16px;border-radius:10px;color:var(--gold);">ب</span></p>
+        <div class="info-box">
+          <h3>أمثلة</h3>
+          <p>
+            <span style="font-family:'Amiri',serif;font-size:1.3rem;">﴿أَنبِئهم﴾ — ﴿سَمِيعٌ بَصِير﴾ — ﴿مِن بَعد﴾</span>
+          </p>
+        </div>
+        <div class="rule-box">
+          <h3>💡 علامته في المصحف</h3>
+          <p>توضع ميم صغيرة (م) فوق النون أو التنوين قبل الباء.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-ikhfa">
+      <div class="accordion-header" onclick="toggleAccordion('acc-ikhfa')">
+        <span>🟠 الحكم الرابع: الإخفاء الحقيقي</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف</h3>
+          <p>النطق بالحرف بصفة بين الإظهار والإدغام مع الغنة — وذلك عند باقي الحروف الهجائية (١٥ حرفاً).</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;">
+          <span style="font-family:'Amiri',serif;font-size:1.4rem;background:var(--orange-light);padding:6px 14px;border-radius:8px;color:var(--orange);border:1px solid #ffc090;">ص ذ ث ك ج ش ق س د ط ز ف ت ض ظ</span>
+        </div>
+        <div class="info-box">
+          <h3>للحفظ</h3>
+          <p style="font-size:0.95rem;line-height:2;">
+            <strong>صِفْ ذَا ثَنَا كَمْ جَادَ شَخصٌ قَدْ سَمَا</strong><br>
+            <strong>دُمْ طَيِّباً زِدْ فِي تُقَى ضَعْ ظَالِمَا</strong>
+          </p>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-light);">أمثلة: <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿منصوراً﴾ ﴿كنتم﴾ ﴿إن شاء﴾ ﴿أنزل﴾</span></p>
+      </div>
+    </div>
+
+    <div class="divider">✦ تعمّق — حقائق وتفاصيل ✦</div>
+
+    <div class="rule-box">
+      <h3>📊 مراتب الإظهار الثلاث</h3>
+      <p>الإظهار ليس درجة واحدة — له ثلاث مراتب بحسب بُعد مخرج الحرف عن مخرج النون:</p>
+      <ul style="margin-top:10px;">
+        <li><strong style="color:var(--green);">الأولى — عليا:</strong> عند الهمزة والهاء — لأنهما أقصى الحلق وأبعده من مخرج النون</li>
+        <li><strong style="color:var(--teal);">الثانية — وسطى:</strong> عند العين والحاء — لأنهما من وسط الحلق</li>
+        <li><strong style="color:var(--gold);">الثالثة — دنيا:</strong> عند الغين والخاء — لأنهما أدنى الحلق وأقربه من مخرج النون</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h3>⚠️ استثناء في الإدغام: أربع كلمات يجب الإظهار فيها</h3>
+      <p>إذا وقع حرف الإدغام بعد النون الساكنة في <strong>كلمة واحدة</strong> وجب الإظهار ولا يجوز الإدغام — وذلك في أربعة مواضع بالقرآن الكريم، لأن الإدغام لو وقع لالتبست بالمضاعف:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
+        <span style="background:#fff;border-radius:10px;padding:10px 16px;box-shadow:var(--shadow);font-family:'Amiri',serif;font-size:1.3rem;color:var(--burgundy);">﴿الدُّنيَا﴾</span>
+        <span style="background:#fff;border-radius:10px;padding:10px 16px;box-shadow:var(--shadow);font-family:'Amiri',serif;font-size:1.3rem;color:var(--burgundy);">﴿بُنيَان﴾</span>
+        <span style="background:#fff;border-radius:10px;padding:10px 16px;box-shadow:var(--shadow);font-family:'Amiri',serif;font-size:1.3rem;color:var(--burgundy);">﴿صِنوَان﴾</span>
+        <span style="background:#fff;border-radius:10px;padding:10px 16px;box-shadow:var(--shadow);font-family:'Amiri',serif;font-size:1.3rem;color:var(--burgundy);">﴿قِنوَان﴾</span>
+      </div>
+      <p style="margin-top:10px;font-size:0.85rem;">والعبرة في ذلك كله بالرواية — أما في ﴿يسۤ﴾ و﴿نۤ﴾ فيُظهر النون فيهما لأنها اسم للسورة لا حرف مبنى.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card orange">
+        <div class="card-icon">🎚️</div>
+        <div class="card-title">مراتب الإخفاء الثلاث</div>
+        <div class="card-body">
+          <strong style="color:var(--burgundy);">الأولى — أشدها:</strong> الطاء والدال والتاء — أقرب مخرجًا للنون<br><br>
+          <strong style="color:var(--orange);">الثانية — أضعفها:</strong> القاف والكاف — أبعد مخرجًا للنون<br><br>
+          <strong style="color:var(--teal);">الثالثة — أوسطها:</strong> باقي الأحرف العشرة — متوسطة في القرب والبُعد
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">الفرق بين الإخفاء والإدغام</div>
+        <div class="card-body">
+          <strong>١ —</strong> الإخفاء لا تشديد معه مطلقًا — بخلاف الإدغام ففيه تشديد.<br><br>
+          <strong>٢ —</strong> إخفاء الحرف يكون <em>عند</em> غيره، أما الإدغام ففيه <em>في</em> غيره.<br><br>
+          <strong>٣ —</strong> الإخفاء يأتي من كلمة واحدة ومن كلمتين — والإدغام لا يكون إلا من كلمتين فقط.
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>🎯 كيفية أداء الإخفاء الحقيقي</h3>
+      <p>يُنطق بالنون الساكنة أو التنوين غير مُظهَرَين إظهارًا محضًا ولا مُدغَمَين إدغامًا محضًا، بل في حالة متوسطة عارية عن التشديد مع بقاء الغنة. ويُحترز من إلصاق اللسان فوق الثنايا العليا — والطريق للخلاص من ذلك هو بُعد اللسان عن الثنايا العليا قليلًا عند النطق بالإخفاء.</p>
+    </div>
+  </div>
+
+  <!-- ====== MEEM SECTION ====== -->
+  <div class="section" id="section-meem">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--teal-light); font-size:1.8rem; font-family:'Amiri',serif; color:var(--teal);">م</div>
+      <div>
+        <div class="section-title">أحكام الميم الساكنة</div>
+        <div class="section-desc">ثلاثة أحكام للميم الساكنة عند التقائها بحروف الهجاء</div>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card teal">
+        <div class="card-icon">🔵</div>
+        <div class="card-title">١ — الإخفاء الشفوي</div>
+        <div class="card-body">
+          عند حرف <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--teal);">الباء</span> فقط، مع الغنة.<br><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿تَرمِيهِم بِحِجَارَة﴾</span><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿أَم بِهِ﴾</span><br><br>
+          <span style="background:var(--teal-light);color:var(--teal);padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700;">سببه: التجانس في المخرج</span>
+        </div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">🟢</div>
+        <div class="card-title">٢ — إدغام المتماثلين الصغير</div>
+        <div class="card-body">
+          عند حرف <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">الميم</span> مع الغنة — إدغام كامل.<br><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿وَهُم مُّعرِضُون﴾</span><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿لَهُم مَّا﴾</span><br><br>
+          <span style="background:var(--green-light);color:var(--green);padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700;">متماثلان: نفس الحرف</span>
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">⭕</div>
+        <div class="card-title">٣ — الإظهار الشفوي</div>
+        <div class="card-body">
+          عند جميع الحروف الباقية — <strong>٢٦ حرفاً</strong> — بلا غنة ولا تشديد.<br><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿كُنتُم خَيرَ أُمَّة﴾</span><br>
+          <em>مثال:</em> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿هُم فِيهَا﴾</span><br><br>
+          <span style="background:var(--gold-pale);color:#8a5a00;padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700;">الأصل في الميم</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ الميم والنون المشددتان ✦</div>
+
+    <div class="rule-box">
+      <h3>🔊 الغنة في المشددتين</h3>
+      <p>الميم والنون المشددتان يجب الغنة فيهما بمقدار حركتين.</p>
+      <p style="margin-top:8px;">أمثلة: <span style="font-family:'Amiri',serif;font-size:1.3rem;">﴿إِنَّ﴾ — ﴿ثُمَّ﴾ — ﴿مِمَّا﴾ — ﴿إِنَّمَا﴾</span></p>
+    </div>
+
+    <div class="chart-wrapper">
+      <div class="chart-title">📊 مقارنة أحكام الميم والنون الساكنتين</div>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-label">الإخفاء (الشفوي / الحقيقي)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(to left,var(--teal),#27a085);">مع غنة</div></div>
+          <div class="bar-val">الباء / ١٥ حرف</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">الإدغام</div>
+          <div class="bar-track"><div class="bar-fill" style="width:40%;background:linear-gradient(to left,var(--green),#2e9d5e);">بغنة/بلا غنة</div></div>
+          <div class="bar-val">الميم / ٦ حروف</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">الإظهار</div>
+          <div class="bar-track"><div class="bar-fill" style="width:85%;background:linear-gradient(to left,var(--gold),#e8a030);">بلا غنة</div></div>
+          <div class="bar-val">٦ حروف / ٢٦ حرف</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">الإقلاب</div>
+          <div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(to left,var(--burgundy),#c44060);">مع غنة</div></div>
+          <div class="bar-val">الباء فقط</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== MEDD SECTION ====== -->
+  <div class="section" id="section-medd">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--blue-light);">📏</div>
+      <div>
+        <div class="section-title">المد والقصر</div>
+        <div class="section-desc">أنواع المد وعلاماته ومقاديره من الحركات</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 تعريف المد وشروط حروفه</h3>
+      <p><strong>لغةً:</strong> الزيادة والإطالة. &nbsp; <strong>اصطلاحاً:</strong> إطالة الصوت بحرف من حروف المد واللين عند وجود همز أو سكون.</p>
+      <p style="margin-top:8px;"><strong>حروف المد الثلاثة بشروطها — مجموعة في كلمة (واي):</strong></p>
+      <ul style="margin-top:8px;">
+        <li><strong style="color:var(--green);">الألف:</strong> لا تكون إلا ساكنة، ولا يكون ما قبلها إلا مفتوحًا — مثل: <span style="font-family:'Amiri',serif;">قَالَ</span></li>
+        <li><strong style="color:var(--teal);">الواو:</strong> تكون ساكنة بشرط ضم ما قبلها — مثل: <span style="font-family:'Amiri',serif;">يَقُولُ</span></li>
+        <li><strong style="color:var(--blue);">الياء:</strong> تكون ساكنة بشرط كسر ما قبلها — مثل: <span style="font-family:'Amiri',serif;">قِيلَ</span></li>
+      </ul>
+      <p style="margin-top:8px;font-size:0.85rem;">فإن فقدت الواو أو الياء شرطيهما فصارتا لين (مفتوح ما قبلهما) كـ﴿خَوف﴾ و﴿بَيت﴾ — فهما حرفا لين لا مد.</p>
+    </div>
+
+    <div class="medd-cards">
+      <div class="medd-card" style="border-color:var(--green);">
+        <div class="medd-name">المد الطبيعي (الأصلي)</div>
+        <div class="medd-harakaat">⏱️ حركتان</div>
+        <div class="medd-def">لا تقوم ذات الحرف إلا به، وليس بعده همز ولا سكون. يُسمّى طبيعياً لأن صاحب الطبيعة السليمة لا يزيد عليه ولا ينقص.</div>
+        <div class="medd-example">﴿قَالَ﴾ — ﴿يَقُولُ﴾ — ﴿قِيلَ﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--teal);">
+        <div class="medd-name">المد المتصل</div>
+        <div class="medd-harakaat">⏱️ ٤ أو ٥ حركات</div>
+        <div class="medd-def">اجتماع حرف المد والهمز في كلمة واحدة — <strong>واجب مده</strong>.</div>
+        <div class="medd-example">﴿جَاءَ﴾ — ﴿سُوءَ﴾ — ﴿جِيءَ﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--gold);">
+        <div class="medd-name">المد المنفصل</div>
+        <div class="medd-harakaat">⏱️ ٢ أو ٤ أو ٥ حركات</div>
+        <div class="medd-def">اجتماع حرف المد والهمز في كلمتين — يجوز قصره أو مده.</div>
+        <div class="medd-example">﴿إِنَّا أَنزَلنَا﴾ — ﴿بِمَا أُنزِلَ﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--blue);">
+        <div class="medd-name">مد البدل</div>
+        <div class="medd-harakaat">⏱️ حركتان</div>
+        <div class="medd-def">أن يُبدَل الهمز الثاني من همزتين حرف مدٍّ. الأصل قصره، وقيل يُمدّ.</div>
+        <div class="medd-example">﴿آمَنُوا﴾ — ﴿آدَم﴾ — ﴿إِيمَانًا﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--burgundy);">
+        <div class="medd-name">مد العارض للسكون</div>
+        <div class="medd-harakaat">⏱️ ٢ أو ٤ أو ٦ حركات</div>
+        <div class="medd-def">أن يقع بعد حرف المد سكون عارض بسبب الوقف — جائز الأوجه الثلاثة.</div>
+        <div class="medd-example">﴿العَالَمِينَ﴾ — ﴿نَسْتَعِينُ﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--purple);">
+        <div class="medd-name">المد اللازم</div>
+        <div class="medd-harakaat">⏱️ ٦ حركات</div>
+        <div class="medd-def">أن يقع بعد حرف المد سكون أصلي — <strong>واجب مده ٦ حركات</strong> وصلاً ووقفاً.</div>
+        <div class="medd-example">﴿آلۤمۤ﴾ — ﴿الۤرٰ﴾ — ﴿دَابَّة﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--orange);">
+        <div class="medd-name">مد اللين</div>
+        <div class="medd-harakaat">⏱️ ٢ أو ٤ أو ٦ حركات</div>
+        <div class="medd-def">حرف المد واو أو ياء ساكنة مفتوح ما قبلها، يُمدّ عند الوقف.</div>
+        <div class="medd-example">﴿خَوفٌ﴾ — ﴿بَيتٌ﴾</div>
+      </div>
+      <div class="medd-card" style="border-color:var(--green-mid);">
+        <div class="medd-name">مد الصلة الكبرى والصغرى</div>
+        <div class="medd-harakaat">⏱️ حركتان / ٤ أو ٥</div>
+        <div class="medd-def"><strong>الصغرى:</strong> هاء الضمير بين متحركين وما قبلها غير همز — حركتان.<br><strong>الكبرى:</strong> إذا جاء بعد الهاء همز — ٤ أو ٥.</div>
+        <div class="medd-example">﴿إِنَّهُۥ هُوَ﴾ — ﴿عِندَهُۥٓ إِلَّا﴾</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h3>⚠️ تنبيه مهم</h3>
+      <p>المد المتصل واجب مده لجميع القراء، أما المنفصل فيجوز قصره عند من يُقرئ بالقصر وذلك بحركتين، ومده عند من يُقرئ بالمد وذلك بأربع أو خمس حركات.</p>
+    </div>
+
+    <div class="divider">✦ أقسام المد من حيث الوجوب والجواز واللزوم ✦</div>
+
+    <div class="rule-box">
+      <h3>📊 تقسيم المدود الثلاثي</h3>
+      <ul style="margin-top:8px;">
+        <li><strong style="color:var(--green);">الواجب:</strong> ما اتفق القراء جميعًا على مده زيادةً على المد الطبيعي — وهو المد المتصل فقط.</li>
+        <li><strong style="color:var(--gold);">الجائز:</strong> ما يجوز مده وقصره — وهو المد المنفصل والعارض للسكون ومد البدل والصلة الصغرى.</li>
+        <li><strong style="color:var(--teal);">اللازم:</strong> ما يلزم مده ست حركات لجميع القراء وصلًا ووقفًا — وهو المد اللازم بنوعيه.</li>
+      </ul>
+    </div>
+
+    <table class="rules-table">
+      <tr><th>نوع المد</th><th>المقدار</th><th>الحكم</th><th>السبب</th></tr>
+      <tr><td>الطبيعي</td><td>حركتان</td><td><span class="badge badge-green">أصل</span></td><td>لا همز ولا سكون بعده</td></tr>
+      <tr><td>المتصل</td><td>٤ أو ٥</td><td><span class="badge" style="background:var(--burgundy-light);color:var(--burgundy);">واجب</span></td><td>همز بعد حرف المد في كلمة</td></tr>
+      <tr><td>المنفصل</td><td>٢ أو ٤ أو ٥</td><td><span class="badge badge-gold">جائز</span></td><td>همز بعد حرف المد في كلمتين</td></tr>
+      <tr><td>اللازم</td><td>٦ — واجب</td><td><span class="badge badge-teal">لازم</span></td><td>سكون أصلي بعد حرف المد</td></tr>
+      <tr><td>العارض للسكون</td><td>٢ أو ٤ أو ٦</td><td><span class="badge badge-gold">جائز</span></td><td>سكون عارض للوقف</td></tr>
+      <tr><td>البدل</td><td>حركتان</td><td><span class="badge badge-gold">جائز</span></td><td>همز قبل حرف المد في كلمة</td></tr>
+      <tr><td>مد اللين</td><td>٢ أو ٤ أو ٦</td><td><span class="badge badge-gold">جائز وقفًا</span></td><td>سكون عارض بعد حرفَي اللين</td></tr>
+      <tr><td>الصلة الصغرى</td><td>حركتان</td><td><span class="badge badge-gold">جائز</span></td><td>هاء الضمير بين متحركين بلا همز</td></tr>
+      <tr><td>الصلة الكبرى</td><td>٤ أو ٥</td><td><span class="badge badge-gold">جائز</span></td><td>هاء الضمير قبل همز</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== MAKHARIJ SECTION ====== -->
+  <div class="section" id="section-makharij">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--purple-light);">🗣️</div>
+      <div>
+        <div class="section-title">مخارج الحروف وصفاتها</div>
+        <div class="section-desc">١٧ مخرجاً في خمسة مواضع رئيسية</div>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card green">
+        <div class="card-icon">🫁</div>
+        <div class="card-title">الجوف</div>
+        <div class="card-body">
+          مخرج واحد — حروف المد الثلاثة:<br>
+          <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">الألف الساكنة — الواو الساكنة — الياء الساكنة</span>
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">🗨️</div>
+        <div class="card-title">الحلق</div>
+        <div class="card-body">
+          ٣ مخارج — ٦ حروف:<br>
+          <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--teal);">ء ه — ع ح — غ خ</span><br>
+          <small>(أقصى الحلق — وسطه — أدناه)</small>
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">👅</div>
+        <div class="card-title">اللسان</div>
+        <div class="card-body">
+          ١٠ مخارج — ١٨ حرفاً:<br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold);">ق ك — ج ش ي — ض — ل — ن — ر — ط د ت — ص س ز — ظ ذ ث</span>
+        </div>
+      </div>
+      <div class="card burgundy">
+        <div class="card-icon">💋</div>
+        <div class="card-title">الشفتان</div>
+        <div class="card-body">
+          مخرجان — ٤ حروف:<br>
+          <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--burgundy);">ف — ب م و</span><br>
+          <small>(الشفة السفلى مع الثنايا — الشفتان معاً)</small>
+        </div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">🦷</div>
+        <div class="card-title">الخيشوم</div>
+        <div class="card-body">
+          مخرج واحد — الغنة:<br>
+          <span style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--blue);">ن — م (المشددتان والغنة)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ الصفات الذاتية — تفصيل كامل ✦</div>
+
+    <!-- Intro box -->
+    <div class="info-box">
+      <h3>📌 تقسيم الصفات</h3>
+      <p>الصفات تنقسم إلى: <strong>ذاتية</strong> (لازمة لا تفارق الحرف أبدًا) و<strong>عرضية</strong> (تلحق الحرف أحيانًا كالتفخيم والترقيق والمد). وعدد الصفات الذاتية <strong>عشرون صفة</strong> عند المشهور: <em>عشر لها ضد، وتسع لا ضد لها</em>.</p>
+    </div>
+
+    <!-- SECTION A: له ضد -->
+    <div style="background:var(--green);color:#fff;border-radius:14px 14px 0 0;padding:14px 20px;font-weight:800;font-size:1rem;margin-top:8px;">
+      أولاً: الصفات التي لها ضد (١٠ صفات = ٥ أزواج)
+    </div>
+    <div style="background:#fff;border-radius:0 0 14px 14px;padding:0;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden;">
+
+      <!-- Pair 1: Hams / Jahr -->
+      <div style="border-bottom:1px solid #f0ebe0;padding:18px 20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+          <div style="flex:1;min-width:200px;background:var(--green-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--green);font-size:0.95rem;margin-bottom:6px;">١ — الجهر</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> الظهور والإعلان.<br>
+              <strong>اصطلاحًا:</strong> انحباس جري النفس عند النطق بالحرف لقوة الاعتماد على مخرجه.<br>
+              <strong>حروفه (٢١):</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--green);">ء ب ج د ذ ر ز ض ط ظ ع غ ق ل م ن و ي والألف والواو والياء المديتان</span><br>
+              <strong>للحفظ:</strong> <em>عَظُمَ وَزْنُ قَارِئٍ ذِي لُبٍّ</em>
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--gold-pale);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:#8a5a00;font-size:0.95rem;margin-bottom:6px;">٢ — الهمس (ضد الجهر)</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> الخفاء.<br>
+              <strong>اصطلاحًا:</strong> جريان النفس عند النطق بالحرف لضعف الاعتماد على مخرجه.<br>
+              <strong>حروفه (١٠):</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;color:#8a5a00;">ف ح ث هـ ش خ ص س ك ت</span><br>
+              <strong>للحفظ:</strong> <em>فَحَثَّهُ شَخصٌ سَكَتَ</em><br>
+              <strong>تنبيه:</strong> أقواها الصاد لما فيها من استعلاء وإطباق وصفير، ثم الخاء لاستعلاء، وأضعفها الهاء والثاء والحاء والفاء.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pair 2: Shidda / Rakhawa -->
+      <div style="border-bottom:1px solid #f0ebe0;padding:18px 20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+          <div style="flex:1;min-width:200px;background:var(--blue-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--blue);font-size:0.95rem;margin-bottom:6px;">٣ — الشدة</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> القوة.<br>
+              <strong>اصطلاحًا:</strong> انحباس جري الصوت عند النطق بالحرف لكمال قوة الاعتماد على مخرجه.<br>
+              <strong>حروفه (٨):</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--blue);">ء ج د ق ط ب ك ت</span><br>
+              <strong>للحفظ:</strong> <em>أَجِدُ قَطٍّ بَكَتْ</em><br>
+              <strong>تنبيه:</strong> أقواها الطاء لاجتماع الجهر والشدة والإطباق والاستعلاء فيها.
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--burgundy-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--burgundy);font-size:0.95rem;margin-bottom:6px;">٤ — الرخاوة (ضد الشدة)</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> اللين.<br>
+              <strong>اصطلاحًا:</strong> جريان الصوت عند النطق بالحرف لضعف الاعتماد على مخرجه.<br>
+              <strong>حروفه (١٨):</strong> حروف الهجاء بعد حروف الشدة والتوسط.<br>
+              <span style="font-family:'Amiri',serif;font-size:1rem;color:var(--burgundy);">خ ذ ث هـ غ ش ح ظ ف ص ض ز س و ي والألف والواو والياء المديتان</span><br>
+              <strong>وبينهما:</strong> صفة التوسط (البينية) وهي <span style="font-family:'Amiri',serif;font-size:1.1rem;">ل ن ع م ر</span> — <em>لن عمر</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pair 3: Isti'laa / Istifal -->
+      <div style="border-bottom:1px solid #f0ebe0;padding:18px 20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:200px;background:var(--orange-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--orange);font-size:0.95rem;margin-bottom:6px;">٥ — الاستعلاء</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> العلو والارتفاع.<br>
+              <strong>اصطلاحًا:</strong> ارتفاع جزء كبير من اللسان عند النطق بأغلب حروفه إلى الحنك الأعلى.<br>
+              <strong>حروفه (٧):</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--orange);">خ ص ض غ ط ق ظ</span><br>
+              <strong>للحفظ:</strong> <em>خُصَّ ضَغطٍ قِظْ</em><br>
+              <strong>تنبيه درجاتها:</strong> أقواها الطاء (جهر + شدة + إطباق)، ثم الصاد والضاد والظاء، ثم القاف، ثم تضعف عند الخاء والغين.
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--teal-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--teal);font-size:0.95rem;margin-bottom:6px;">٦ — الاستفال (ضد الاستعلاء)</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> الانخفاض.<br>
+              <strong>اصطلاحًا:</strong> انخفاض اللسان إلى قاع الفم عند النطق بأغلب حروفه.<br>
+              <strong>حروفه (٢٤):</strong> حروف الهجاء بعد حروف الاستعلاء السبعة.<br>
+              <strong>حكمها:</strong> الترقيق قولًا واحدًا — إلا الألف واللام والراء فسيأتي الكلام عليها.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pair 4: Itbaq / Infitah -->
+      <div style="border-bottom:1px solid #f0ebe0;padding:18px 20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:200px;background:var(--purple-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--purple);font-size:0.95rem;margin-bottom:6px;">٧ — الإطباق</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> الإلصاق.<br>
+              <strong>اصطلاحًا:</strong> إطباق اللسان على الحنك الأعلى عند النطق بحروفه بحيث ينحصر الصوت بينهما.<br>
+              <strong>حروفه (٤):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--purple);">ص ض ط ظ</span><br>
+              <strong>تنبيه:</strong> أقواها الطاء ويليها الصاد ثم الضاد، وأضعفها الظاء. وهذه الأربعة من أصعب الحروف نطقًا لأن فيها استعلاءً وإطباقًا معًا.
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--green-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--green);font-size:0.95rem;margin-bottom:6px;">٨ — الانفتاح (ضد الإطباق)</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> الافتراق.<br>
+              <strong>اصطلاحًا:</strong> تجافي اللسان عن الحنك الأعلى ليخرج الريح عند النطق بأغلب حروفه.<br>
+              <strong>حروفه (٢٧):</strong> جميع الحروف ما عدا الأربعة المطبقة.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pair 5: Izhlaq / Ismat -->
+      <div style="padding:18px 20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:200px;background:var(--gold-pale);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:#8a5a00;font-size:0.95rem;margin-bottom:6px;">٩ — الإذلاق</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> حدة اللسان وبلاغته وطلاقة الطرف.<br>
+              <strong>اصطلاحًا:</strong> خفة الحرف وسرعة النطق به لخروجه من ذلق اللسان أو طرف الشفة.<br>
+              <strong>حروفه (٦):</strong> <span style="font-family:'Amiri',serif;font-size:1.2rem;color:#8a5a00;">ف ر م ن ل ب</span><br>
+              <strong>للحفظ:</strong> <em>فِرَّ مِنْ لُبٍّ</em><br>
+              منها ما يخرج من ذلق اللسان: <strong>ر ن ل</strong> — ومنها من الشفة: <strong>ب ف م</strong>
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--burgundy-light);border-radius:10px;padding:14px;">
+            <div style="font-weight:800;color:var(--burgundy);font-size:0.95rem;margin-bottom:6px;">١٠ — الإصمات (ضد الإذلاق)</div>
+            <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+              <strong>لغةً:</strong> المنع تقول صمت عن الكلام أي منع نفسه منه.<br>
+              <strong>اصطلاحًا:</strong> ثقل الحرف وعدم سرعة النطق به لخروجه بعيدًا عن ذلق اللسان والشفة.<br>
+              <strong>حروفه (٢٥):</strong> باقي الحروف بعد المذلقة.<br>
+              <strong>فائدة:</strong> الكلمات الرباعية والخماسية الأصول لا بد أن يكون فيها حرف من الإذلاق وإلا كانت أعجمية.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION B: لا ضد له -->
+    <div style="background:var(--teal);color:#fff;border-radius:14px 14px 0 0;padding:14px 20px;font-weight:800;font-size:1rem;">
+      ثانيًا: الصفات التي لا ضد لها (٩ صفات)
+    </div>
+    <div style="background:#fff;border-radius:0 0 14px 14px;padding:0;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden;">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;">
+
+        <!-- Safir -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--teal);margin-bottom:6px;">١ — الصفير</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> صوت يشبه صوت الطائر.<br>
+            <strong>اصطلاحًا:</strong> صوت زائد يخرج من بين الثنايا وطرف اللسان عند النطق بأحد حروفه.<br>
+            <strong>حروفه (٣):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--teal);">ص  ز  س</span><br>
+            أقواها الصاد لاستعلاء وإطباق وصفير، وأوسطها الزاي لجهر، وأضعفها السين لهمس.
+          </div>
+        </div>
+
+        <!-- Qalqalah -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">٢ — القلقلة</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>اصطلاحًا:</strong> اضطراب الصوت عند النطق بالحرف الساكن حتى يُسمع له نبرة قوية.<br>
+            <strong>حروفه (٥):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">ق  ط  ب  ج  د</span> — قُطبُ جَدّ<br>
+            أعلاها في الطاء، وأوسطها في الجيم، وأدناها في الثلاثة الباقية.
+          </div>
+        </div>
+
+        <!-- Leen -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--blue);margin-bottom:6px;">٣ — اللين</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> السهولة.<br>
+            <strong>اصطلاحًا:</strong> إخراج الحرف من مخرجه بسهولة وعدم كلفة على اللسان.<br>
+            <strong>حرفاه (٢):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--blue);">واو وياء ساكنتان مفتوح ما قبلهما</span><br>
+            مثل: <span style="font-family:'Amiri',serif;">خَوْف — بَيْت</span>
+          </div>
+        </div>
+
+        <!-- Inhiraf -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--burgundy);margin-bottom:6px;">٤ — الانحراف</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> الميل والعدول.<br>
+            <strong>اصطلاحًا:</strong> الميل بالحرف بعد خروجه من مخرجه حتى يتصل بمخرج آخر.<br>
+            <strong>حرفاه (٢):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--burgundy);">ل  ر</span><br>
+            اللام: انحراف إلى طرف اللسان. الراء: انحراف أيضًا إلى ظهر اللسان وميل قليل إلى جهة اللام.
+          </div>
+        </div>
+
+        <!-- Takrir -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--orange);margin-bottom:6px;">٥ — التكرير</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> الإعادة.<br>
+            <strong>اصطلاحًا:</strong> ارتعاد رأس اللسان عند النطق بالحرف.<br>
+            <strong>حرفه (١):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--orange);">ر</span><br>
+            <strong>تنبيه مهم:</strong> يجب إخفاء التكرير وعدم إظهاره لأن معرفة هذه الصفة تركها بمعنى عدم المبالغة فيها — والواجب ارتعادة واحدة خفيفة لا أكثر.
+          </div>
+        </div>
+
+        <!-- Tafashi -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--purple);margin-bottom:6px;">٦ — التفشي</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> الانتشار وقيل الاتساع.<br>
+            <strong>اصطلاحًا:</strong> انتشار خروج الريح بين اللسان والحنك الأعلى عند النطق بالحرف.<br>
+            <strong>حرفه (١):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--purple);">ش</span><br>
+            سُمّيت الشين متفشية لانتشار الريح في الفم عند النطق بها حتى تتصل بمخرج الظاء.
+          </div>
+        </div>
+
+        <!-- Istitatah -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--teal);margin-bottom:6px;">٧ — الاستطالة</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> الامتداد.<br>
+            <strong>اصطلاحًا:</strong> امتداد الصوت من أول إحدى حافتَي اللسان إلى آخرها.<br>
+            <strong>حرفه (١):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--teal);">ض</span><br>
+            <strong>الفرق بين الاستطالة والمد:</strong> المستطيل يجري الصوت في مخرجه ولا يتجاوزه، أما الممدود فليس له مخرج محقق بل يجري الصوت في ذاته ولا ينقطع إلا بانقطاع الهواء.
+          </div>
+        </div>
+
+        <!-- Khafa' -->
+        <div style="padding:16px 20px;border-bottom:1px solid #f0ebe0;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--gold);margin-bottom:6px;">٨ — الخفاء</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> الاستتار.<br>
+            <strong>اصطلاحًا:</strong> خفاء صوت الحرف عند النطق به.<br>
+            <strong>حروفه (٤):</strong> حروف المد الثلاثة والهاء — يجمعها: <span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold);">هاوى</span><br>
+            خفاء حروف المد لسعة مخارجها، وأما الهاء فلضعف صفاتها كلها.
+          </div>
+        </div>
+
+        <!-- Ghunna -->
+        <div style="padding:16px 20px;border-left:1px solid #f0ebe0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">٩ — الغنة</div>
+          <div style="font-size:0.82rem;color:var(--text-light);line-height:1.9;">
+            <strong>لغةً:</strong> صوت له رنين في الخيشوم.<br>
+            <strong>اصطلاحًا:</strong> صوت لذيذ مركّب في جسم النون والميم في كل الأحوال.<br>
+            <strong>حرفاها (٢):</strong> <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">ن  م</span><br>
+            مقدارها حركتان — وتظهر جليًّا في المشددتين وعند الإخفاء والإدغام بغنة.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Quick Reference Table -->
+    <div class="divider">✦ جدول مرجعي سريع ✦</div>
+    <table class="rules-table">
+      <tr><th>#</th><th>الصفة</th><th>ضدها</th><th>الحروف (للحفظ)</th><th>العدد</th></tr>
+      <tr><td>١</td><td><span class="badge badge-green">الجهر</span></td><td><span class="badge badge-gold">الهمس</span></td><td><span style="font-family:'Amiri',serif;">عَظُمَ وَزْنُ قَارِئٍ ذِي لُبٍّ / فَحَثَّهُ شَخصٌ سَكَتَ</span></td><td>٢١ / ١٠</td></tr>
+      <tr><td>٢</td><td><span class="badge badge-blue" style="background:var(--blue-light);color:var(--blue);">الشدة</span></td><td><span class="badge badge-burgundy">الرخاوة</span></td><td><span style="font-family:'Amiri',serif;">أَجِدُ قَطٍّ بَكَتْ / بينهما: لن عمر</span></td><td>٨ / ٥ / ١٨</td></tr>
+      <tr><td>٣</td><td><span class="badge badge-gold">الاستعلاء</span></td><td><span class="badge badge-teal">الاستفال</span></td><td><span style="font-family:'Amiri',serif;">خُصَّ ضَغطٍ قِظْ / باقي الحروف</span></td><td>٧ / ٢٤</td></tr>
+      <tr><td>٤</td><td><span class="badge" style="background:var(--purple-light);color:var(--purple);">الإطباق</span></td><td><span class="badge badge-green">الانفتاح</span></td><td><span style="font-family:'Amiri',serif;">ص ض ط ظ / باقي الحروف</span></td><td>٤ / ٢٧</td></tr>
+      <tr><td>٥</td><td><span class="badge badge-gold">الإذلاق</span></td><td><span class="badge badge-burgundy">الإصمات</span></td><td><span style="font-family:'Amiri',serif;">فِرَّ مِنْ لُبٍّ / باقي الحروف</span></td><td>٦ / ٢٥</td></tr>
+      <tr style="background:var(--green-pale);"><td colspan="5" style="font-weight:700;color:var(--green);text-align:center;padding:10px;">الصفات التي لا ضد لها</td></tr>
+      <tr><td>٦</td><td colspan="2"><span class="badge badge-teal">الصفير</span></td><td><span style="font-family:'Amiri',serif;">ص  ز  س</span></td><td>٣</td></tr>
+      <tr><td>٧</td><td colspan="2"><span class="badge badge-green">القلقلة</span></td><td><span style="font-family:'Amiri',serif;">قُطبُ جَدّ</span></td><td>٥</td></tr>
+      <tr><td>٨</td><td colspan="2"><span class="badge" style="background:var(--blue-light);color:var(--blue);">اللين</span></td><td><span style="font-family:'Amiri',serif;">و ي ساكنتان مفتوح ما قبلهما</span></td><td>٢</td></tr>
+      <tr><td>٩</td><td colspan="2"><span class="badge badge-burgundy">الانحراف</span></td><td><span style="font-family:'Amiri',serif;">ل  ر</span></td><td>٢</td></tr>
+      <tr><td>١٠</td><td colspan="2"><span class="badge badge-gold">التكرير</span></td><td><span style="font-family:'Amiri',serif;">ر</span></td><td>١</td></tr>
+      <tr><td>١١</td><td colspan="2"><span class="badge" style="background:var(--purple-light);color:var(--purple);">التفشي</span></td><td><span style="font-family:'Amiri',serif;">ش</span></td><td>١</td></tr>
+      <tr><td>١٢</td><td colspan="2"><span class="badge badge-teal">الاستطالة</span></td><td><span style="font-family:'Amiri',serif;">ض</span></td><td>١</td></tr>
+      <tr><td>١٣</td><td colspan="2"><span class="badge badge-gold">الخفاء</span></td><td><span style="font-family:'Amiri',serif;">هاوى (ه + حروف المد)</span></td><td>٤</td></tr>
+      <tr><td>١٤</td><td colspan="2"><span class="badge badge-green">الغنة</span></td><td><span style="font-family:'Amiri',serif;">ن  م</span></td><td>٢</td></tr>
+    </table>
+
+    <div class="warning-box">
+      <h3>⚠️ تنبيه: كل حرف لا بد أن يُؤخذ منه خمس صفات</h3>
+      <p>بقدر ما يوجد في الحرف من صفات القوة تكون قوته، وعلى قدر ما يوجد فيه من صفات الضعف يكون ضعفه. مثلاً: الطاء هي أقوى الحروف لاجتماع الجهر والشدة والاستعلاء والإطباق فيها.</p>
+    </div>
+  </div>
+
+  <!-- ====== LAM SECTION ====== -->
+  <div class="section" id="section-lam">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--orange-light); font-size:1.8rem; font-family:'Amiri',serif; color:var(--orange);">ل</div>
+      <div>
+        <div class="section-title">أحكام اللامات السواكن</div>
+        <div class="section-desc">لام أل التعريف — لام الفعل — لام الاسم — لام الأمر</div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-lam-al">
+      <div class="accordion-header" onclick="toggleAccordion('acc-lam-al')">
+        <span>📗 لام أل التعريف</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="cards-grid">
+          <div class="card green">
+            <div class="card-icon">☀️</div>
+            <div class="card-title">اللام الشمسية (الإدغام)</div>
+            <div class="card-body">
+              تُدغم اللام في ١٤ حرفاً تُعرف بالحروف الشمسية.<br><br>
+              <strong>للحفظ:</strong> طِبْ ثُمَّ صِلْ رَحِماً تَفُزْ ضِفْ ذَا نِعَمْ دَعْ سُوءَ ظَنٍّ زُرْ شَرِيفاً لِلْكَرَم<br><br>
+              مثال: <span style="font-family:'Amiri',serif;font-size:1.3rem;">الشَّمس — الرَّحمن — النَّاس</span>
+            </div>
+          </div>
+          <div class="card gold">
+            <div class="card-icon">🌙</div>
+            <div class="card-title">اللام القمرية (الإظهار)</div>
+            <div class="card-body">
+              تُظهر اللام عند ١٤ حرفاً تُعرف بالحروف القمرية.<br><br>
+              <strong>للحفظ:</strong> ابغِ حَجَّكَ وَخَفْ عَقِيمَه<br><br>
+              مثال: <span style="font-family:'Amiri',serif;font-size:1.3rem;">القَمَر — الكِتَاب — الحَمد</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-lam-verb">
+      <div class="accordion-header" onclick="toggleAccordion('acc-lam-verb')">
+        <span>📘 لام الفعل</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>حكمها</h3>
+          <p>تُدغم لام الفعل في حرفين فقط: <strong>اللام والراء</strong> لأنهما من مخرج اللسان وهما أقرب الحروف إليها، وتُظهر عند باقي الحروف.</p>
+        </div>
+        <p>أمثلة على الإدغام: <span style="font-family:'Amiri',serif;font-size:1.3rem;">﴿قُل رَّبِّي﴾ — ﴿قُل لَّهُم﴾</span></p>
+        <p style="margin-top:10px;">أمثلة على الإظهار: <span style="font-family:'Amiri',serif;font-size:1.3rem;">﴿قُل حَقَّ﴾ — ﴿قُل نَعَم﴾</span></p>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-lam-ism">
+      <div class="accordion-header" onclick="toggleAccordion('acc-lam-ism')">
+        <span>📙 لام الاسم — رابعاً</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف والحكم</h3>
+          <p>هي اللام الواقعة في كلمة فيها إحدى علامات الاسم، وتكون دائمًا متوسطة وأصلية. <strong>حكمها: وجوب الإظهار مطلقًا.</strong></p>
+        </div>
+        <p>أمثلة: <span style="font-family:'Amiri',serif;font-size:1.3rem;">﴿أَلسَتَكُم﴾ — ﴿وَأَلوَانِكُم﴾ — ﴿سَلسَبِيلًا﴾ — ﴿سُلطَن﴾</span></p>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-lam-amr">
+      <div class="accordion-header" onclick="toggleAccordion('acc-lam-amr')">
+        <span>📒 لام الأمر — خامساً</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 التعريف والحكم</h3>
+          <p>هي اللام الساكنة الزائدة عن بنية الكلمة والتي تدخل على الفعل المضارع فتحوله إلى صيغة الأمر، بشرط أن تكون مسبوقة بثم أو الواو أو الفاء. <strong>حكمها: وجوب الإظهار مطلقًا.</strong></p>
+        </div>
+        <p>مثال المسبوقة بثم: <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿ثُمَّ لْيَقضُوا تَفَثَهُم﴾</span></p>
+        <p style="margin-top:6px;">مثال المسبوقة بالواو: <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿وَلْيُوفُوا نُذُورَهُم﴾</span></p>
+        <p style="margin-top:6px;">مثال المسبوقة بالفاء: <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿فَلْيَمدُد بِسَبَبٍ إِلَى السَّمَاء﴾</span></p>
+        <div class="info-box" style="margin-top:12px;">
+          <h3>سؤال وجوابه</h3>
+          <p>قد يسأل سائل: لم لم تُدغم لام الأمر في النون في نحو ﴿وَلْيَقضِ﴾ ولم تُدغم في نحو ﴿فَلتَقُم طَائِفَة﴾؟<br>
+          الجواب: اللام في ﴿التَّيَّبُونَ﴾ هي لام تعريف وهي كثيرة الوقوع في القرآن وإظهارها ليس فيه مشقة كما سبق التنويه عند لام الفعل.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ تنبيه وفائدة ✦</div>
+
+    <div class="info-box">
+      <h3>📌 الحروف التي تقع بعد اللامات السواكن</h3>
+      <p>اعلم أن الحروف الهجائية التي تقع بعد اللامات السواكن عددها ثمانية وعشرون حرفًا بعد إسقاط حروف المد الثلاثة — شأنها شأن النون الساكنة والتنوين. وقد جمع الكتاب حروف الإدغام في لام الفعل في أثناء حروف الإدغام العامة بما يفيد أن سبب الإدغام في لام اللسان هو التماثل بالنسبة للام، والتقارب بالنسبة للراء.</p>
+    </div>
+
+    <div class="rule-box">
+      <h3>🔑 ملخّص اللامات السواكن الخمسة</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:8px;">
+        <tr style="background:var(--green);color:#fff;">
+          <th style="padding:8px;border:1px solid #0d3d23;">اللام</th>
+          <th style="padding:8px;border:1px solid #0d3d23;">مثالها</th>
+          <th style="padding:8px;border:1px solid #0d3d23;">حكمها</th>
+        </tr>
+        <tr>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-weight:700;">لام أل (شمسية)</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-family:'Amiri',serif;font-size:1.1rem;">الشَّمس</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;"><span class="badge badge-teal">إدغام</span></td>
+        </tr>
+        <tr style="background:var(--cream);">
+          <td style="padding:8px;border:1px solid #d0c8b8;font-weight:700;">لام أل (قمرية)</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-family:'Amiri',serif;font-size:1.1rem;">القَمَر</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;"><span class="badge badge-green">إظهار</span></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-weight:700;">لام الفعل</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-family:'Amiri',serif;font-size:1.1rem;">﴿قُل رَّبِّي﴾</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;"><span class="badge badge-teal">إدغام</span> في ل و ر فقط / <span class="badge badge-green">إظهار</span> في غيرها</td>
+        </tr>
+        <tr style="background:var(--cream);">
+          <td style="padding:8px;border:1px solid #d0c8b8;font-weight:700;">لام الاسم</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-family:'Amiri',serif;font-size:1.1rem;">﴿سُلطَن﴾</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;"><span class="badge badge-green">إظهار دائم</span></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-weight:700;">لام الأمر</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;font-family:'Amiri',serif;font-size:1.1rem;">﴿وَلْيُوفُوا﴾</td>
+          <td style="padding:8px;border:1px solid #d0c8b8;"><span class="badge badge-green">إظهار دائم</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ====== WAQF SECTION ====== -->
+  <div class="section" id="section-waqf">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--gold-pale);">⏸️</div>
+      <div>
+        <div class="section-title">الوقف والابتداء</div>
+        <div class="section-desc">أنواع الوقف — الروم والإشمام — السكت — المقطوع والموصول — الوقف على التاء — البسملة</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 تمهيد</h3>
+      <p>القارئ للقرآن لا يستطيع أن يقرأ السورة أو القصة من نفس واحد، علمًا بأنه لم يُجز التنفس بين الكلمتين حالة الوصل، ولا في أثناء الكلمة. لهذا فقد وجب اختيار وقف للتنفس والاستراحة، وتعيّن على القارئ أن يبتدئ بعد التنفس والاستراحة بشرط أن لا يكون ذلك مما يُخل بالمعنى أو الفهم.</p>
+    </div>
+
+    <!-- الوقف الاختياري -->
+    <div style="background:var(--green);color:#fff;border-radius:14px 14px 0 0;padding:12px 20px;font-weight:800;font-size:0.95rem;">أولاً: أقسام الوقف الاختياري الأربعة</div>
+    <div style="background:#fff;border-radius:0 0 14px 14px;padding:16px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;">
+
+        <div style="border-radius:10px;padding:16px;background:var(--green-light);border:1px solid #b3d9c4;page-break-inside:avoid;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:8px;font-size:0.95rem;">١ — الوقف التام ✅</div>
+          <div style="font-size:0.85rem;color:var(--text-light);line-height:1.9;">
+            <strong>تعريفه:</strong> الوقف على كلام تم في ذاته ولم يتعلق بما بعده من جهة اللفظ ولا من جهة المعنى.<br>
+            <strong>نوعاه:</strong> الأول لازم (يُلزم الوقف لئلا يُفهم غير المراد) — والثاني واجب.<br>
+            <strong>حكمه:</strong> أجود الوقوف وأكمله ويُستحب الوقف عليه والابتداء بما بعده.<br>
+            <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;">الوقف على: ﴿فَلَايَحزُنكَ قَولُهُم﴾</span>
+          </div>
+        </div>
+
+        <div style="border-radius:10px;padding:16px;background:var(--gold-pale);border:1px solid #e8c870;page-break-inside:avoid;">
+          <div style="font-weight:800;color:#8a5a00;margin-bottom:8px;font-size:0.95rem;">٢ — الوقف الكافي ⚡</div>
+          <div style="font-size:0.85rem;color:var(--text-light);line-height:1.9;">
+            <strong>تعريفه:</strong> الوقف على كلام تم معناه لكن له تعلق بما بعده من جهة المعنى لا اللفظ.<br>
+            <strong>حكمه:</strong> جائز حسن — ويُحسن الوقف والابتداء بما بعده.<br>
+            <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;">﴿هُدًى لِّلمُتَّقِين﴾</span> — يُحسن الوقف عليها والابتداء بما بعدها.
+          </div>
+        </div>
+
+        <div style="border-radius:10px;padding:16px;background:var(--teal-light);border:1px solid #a0d8d8;page-break-inside:avoid;">
+          <div style="font-weight:800;color:var(--teal);margin-bottom:8px;font-size:0.95rem;">٣ — الوقف الحسن 〰️</div>
+          <div style="font-size:0.85rem;color:var(--text-light);line-height:1.9;">
+            <strong>تعريفه:</strong> الوقف على كلام يُفهم منه المعنى لكن له تعلق بما بعده لفظًا ومعنًى.<br>
+            <strong>حكمه:</strong> جائز مع الابتداء بما بعده — ولا يُبتدأ به إن لم يكن رأس آية.<br>
+            <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.1rem;">الوقف على ﴿الحَمدُ لِلَّهِ﴾</span> من أول الفاتحة.
+          </div>
+        </div>
+
+        <div style="border-radius:10px;padding:16px;background:var(--burgundy-light);border:1px solid #e8b0b8;page-break-inside:avoid;">
+          <div style="font-weight:800;color:var(--burgundy);margin-bottom:8px;font-size:0.95rem;">٤ — الوقف القبيح ❌</div>
+          <div style="font-size:0.85rem;color:var(--text-light);line-height:1.9;">
+            <strong>تعريفه:</strong> الوقف على كلام لم يتم معناه ولم يُؤدِّ معنى صحيحًا لشدة تعلقه بما بعده.<br>
+            <strong>نوعاه:</strong> ما لا يُفهم منه معنى أصلًا (كالوقف على ﴿بِسم﴾) — وما يُفهم منه معنى فاسد (كالوقف على ﴿الحَمدُ لِلَّهِ رَبِّ﴾).<br>
+            <strong>حكمه:</strong> لا يجوز تعمّده — ولا الابتداء بما بعده — إلا لضرورة التنفس ثم يجب الرجوع.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- علامات الوقف في المصحف -->
+    <div class="divider">✦ علامات الوقف في المصحف الشريف ✦</div>
+
+    <table class="rules-table">
+      <tr><th>العلامة</th><th>اسمها</th><th>معناها</th></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--green);">م</td><td>وقف لازم</td><td style="font-size:0.85rem;">يجب الوقف لئلا يُفهم خلاف المراد</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--green);">ط</td><td>وقف مطلق</td><td style="font-size:0.85rem;">الوقف التام — أجود الوقوف</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--teal);">ج</td><td>وقف جائز</td><td style="font-size:0.85rem;">الوقف جائز والوصل أجوز</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--gold);">ز</td><td>وقف مُجوَّز</td><td style="font-size:0.85rem;">الوقف جائز مع كون الوصل أولى</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--orange);">ص</td><td>وقف مُرخَّص</td><td style="font-size:0.85rem;">الوصل أولى مع كون الوقف حائزًا</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--burgundy);">لا</td><td>لا يُوقف</td><td style="font-size:0.85rem;">لا يصلح الوقف ولا الابتداء بما بعده</td></tr>
+      <tr><td style="font-size:1.3rem;font-weight:900;color:var(--blue);">⁝ ⁝</td><td>وقف مُعانقة</td><td style="font-size:0.85rem;">إذا وقفت على الأول وصلت الثاني والعكس</td></tr>
+      <tr><td style="font-size:1.1rem;font-weight:900;color:var(--text);">س</td><td>السكتة</td><td style="font-size:0.85rem;">قطع الصوت لحظة بدون تنفس</td></tr>
+    </table>
+
+    <!-- الروم والإشمام والسكت -->
+    <div class="divider">✦ الروم والإشمام والسكت ✦</div>
+
+    <div class="cards-grid">
+      <div class="card teal">
+        <div class="card-icon">🔊</div>
+        <div class="card-title">الروم</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> الطلب والقصد.<br>
+          <strong>اصطلاحًا:</strong> الإتيان ببعض الحركة — أي النطق بثلث الحركة تقريبًا — عند الوقف بحيث يسمعه القريب دون البعيد.<br><br>
+          <strong>مَن يجوز فيه الروم؟</strong><br>
+          يجوز في المرفوع والمجرور فقط (الضمة والكسرة) ولا يجوز في المفتوح لخفة الفتحة.<br><br>
+          <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿نَستَعِينُ﴾ — ﴿الرَّحِيمِ﴾</span>
+        </div>
+      </div>
+      <div class="card purple">
+        <div class="card-icon">👄</div>
+        <div class="card-title">الإشمام</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> ضمّ الشيء إلى الشيء.<br>
+          <strong>اصطلاحًا:</strong> ضمّ الشفتين بعد الوقف إشارةً إلى الضمة — ولا يُسمع له صوت أصلًا.<br><br>
+          <strong>شرطه:</strong> يجوز في المضموم فقط (الضمة) ولا يجوز في المكسور ولا المفتوح.<br><br>
+          <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿نَستَعِينُ﴾</span> — يُضمّ الشفتان بعد الوقف على النون.<br><br>
+          <strong>الفرق عن الروم:</strong> الروم يُسمع — الإشمام لا يُسمع ويُرى.
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">🤫</div>
+        <div class="card-title">السكت</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> الصمت.<br>
+          <strong>اصطلاحًا:</strong> قطع الصوت عن الحرف الموقوف عليه زمنًا يسيرًا بدون تنفس.<br><br>
+          <strong>الفرق عن الوقف:</strong> الوقف يُؤخذ معه النفس — السكت لا يُؤخذ معه نَفَس.<br><br>
+          <strong>مثاله:</strong> <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿مَالِيَه ۝ هَلَكَ﴾</span> — السكت على الهاء في حالة الوصل.
+        </div>
+      </div>
+    </div>
+
+    <!-- السكتات الواجبة -->
+    <div class="divider">✦ السكتات الواجبة الأربعة في رواية حفص ✦</div>
+
+    <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:var(--shadow);margin-bottom:20px;">
+      <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:14px;">روى حفص السكت وجوبًا في أربعة مواضع — والسكت هنا: قطع الصوت لحظة بدون تنفس عند الوصل:</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
+
+        <div style="background:var(--green-pale);border-radius:10px;padding:14px;border:1px solid #c0e0d0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">١ — على ألف ﴿عِوجَا﴾</div>
+          <div style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--green);margin-bottom:6px;">﴿وَلَم يَجعَل لَّهُۥ عِوَجَا ۜ قَيِّمًا﴾</div>
+          <div style="font-size:0.8rem;color:var(--text-light);">الكهف — حكمة السكت: ألا يُوهم أن ﴿قيّمًا﴾ صفة للعِوَج</div>
+        </div>
+
+        <div style="background:var(--green-pale);border-radius:10px;padding:14px;border:1px solid #c0e0d0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">٢ — على ألف ﴿مَرقَدِنَا﴾</div>
+          <div style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--green);margin-bottom:6px;">﴿مَن بَعَثَنَا مِن مَّرقَدِنَا ۜ هَٰذَا﴾</div>
+          <div style="font-size:0.8rem;color:var(--text-light);">يس — حكمة السكت: لئلا يوهم أن ﴿هذا﴾ من مقول المشركين المنكرين للبعث</div>
+        </div>
+
+        <div style="background:var(--green-pale);border-radius:10px;padding:14px;border:1px solid #c0e0d0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">٣ — على نون ﴿مَن رَّاق﴾</div>
+          <div style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--green);margin-bottom:6px;">﴿وَقِيلَ مَن ۜ رَاق﴾</div>
+          <div style="font-size:0.8rem;color:var(--text-light);">القيامة — حكمة السكت: لئلا يُدغم النون في الراء فيصير ﴿مرّاق﴾</div>
+        </div>
+
+        <div style="background:var(--green-pale);border-radius:10px;padding:14px;border:1px solid #c0e0d0;">
+          <div style="font-weight:800;color:var(--green);margin-bottom:6px;">٤ — على لام ﴿بَل رَان﴾</div>
+          <div style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--green);margin-bottom:6px;">﴿كَلَّا ۜ بَل ۜ رَانَ﴾</div>
+          <div style="font-size:0.8rem;color:var(--text-light);">المطففين — حكمة السكت: لئلا يوهم الوصل أن الكلمتين كلمة واحدة</div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:14px;">
+        <h3>السكتات الجائزة في موضعين</h3>
+        <p><strong>١ —</strong> السكت بين سورتَي الأنفال والتوبة وهو أحد أوجه الثلاثة: القطع، السكت، الوصل — ولا يُؤتى بالبسملة اتفاقًا.<br>
+        <strong>٢ —</strong> السكت على الهاء في ﴿مَالِيَه ۝ هَلَكَ﴾ بالحاقة — فيجوز السكت والسكت في الأداء هو المقدَّم.</p>
+      </div>
+    </div>
+
+    <!-- الوقف على الهاء والتاء -->
+    <div class="divider">✦ الوقف على هاء التأنيث والتاء المفتوحة ✦</div>
+
+    <div class="cards-grid">
+      <div class="card green">
+        <div class="card-icon">ة</div>
+        <div class="card-title">الوقف على التاء المربوطة (هاء التأنيث)</div>
+        <div class="card-body">
+          الأصل في كل تاء رُسمت في المصحف بالتاء المربوطة (ة) أن يُوقف عليها بالهاء — فتُقرأ هاءً ساكنة:<br><br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿رَحمَة﴾ → رَحمَه — ﴿نِعمَة﴾ → نِعمَه</span><br><br>
+          وما عدا ذلك مما رسم بالتاء المفتوحة فيوقف عليه بالتاء.
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">ت</div>
+        <div class="card-title">الوقف على التاء المفتوحة</div>
+        <div class="card-body">
+          رُسمت بعض كلمات القرآن بالتاء المفتوحة، ومنها ما اتفقت عليه المصاحف ومنها ما اختُلف فيه. الوقف عليها يكون بالتاء اتباعًا للرسم.<br><br>
+          <strong>أمثلة مما اتُّفق عليه:</strong><br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿يَتَنَجَّونَ بِالإِثمِ وَالعُدوَانِ وَمَعصِيَتِ الرَّسُولِ﴾</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- المقطوع والموصول -->
+    <div class="divider">✦ المقطوع والموصول ✦</div>
+
+    <div class="rule-box">
+      <h3>📖 تعريف المقطوع والموصول</h3>
+      <p><strong>المقطوع:</strong> ما رسمته المصاحف العثمانية كلمتين منفصلتين وإن كان معناهما كلمة واحدة — كـ﴿أن لا﴾ في مواضع.<br>
+      <strong>الموصول:</strong> ما رسمته المصاحف كلمة واحدة وإن كان معناه كلمتين — كـ﴿إنّما﴾ و﴿أنّما﴾.</p>
+      <p style="margin-top:10px;font-size:0.85rem;"><strong>الحكم:</strong> يجب اتباع الرسم العثماني وصلًا ووقفًا — فما رُسم مقطوعًا يُقرأ مقطوعًا وما رُسم موصولًا يُقرأ موصولًا.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);margin-bottom:20px;">
+      <p style="font-weight:700;color:var(--text);margin-bottom:12px;font-size:0.9rem;">أنواع المقطوع والموصول ثلاثة:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
+        <div style="background:var(--green-pale);border-radius:8px;padding:12px;">
+          <strong style="color:var(--green);">النوع الأول:</strong> ما اتفقت المصاحف العثمانية على قطعه في كل موضع — وذلك في ستّ كلمات منها: ﴿أن لا تشركوا﴾ في مواضع، ﴿أن لّم يكن﴾ — والمقطوع اتفاقًا هو الأرجح في الأداء.
+        </div>
+        <div style="background:var(--gold-pale);border-radius:8px;padding:12px;">
+          <strong style="color:#8a5a00;">النوع الثاني:</strong> ما اتفقت المصاحف على وصله — كـ﴿إنّما﴾ و﴿أنّما﴾ و﴿كأنّما﴾ — ووصله واجب.
+        </div>
+        <div style="background:var(--teal-light);border-radius:8px;padding:12px;">
+          <strong style="color:var(--teal);">النوع الثالث:</strong> ما وقع فيه الخلاف بين المصاحف — فبعضها رسمه مقطوعًا وبعضها موصولًا. والأرجح هو الوصل في أغلب هذه المواضع.
+        </div>
+      </div>
+    </div>
+
+    <!-- البسملة بين السور -->
+    <div class="divider">✦ البسملة بين السور ✦</div>
+
+    <div class="rule-box">
+      <h3>📖 أوجه البسملة بين السورتين</h3>
+      <p>للقارئ عند الانتقال من سورة إلى سورة ثلاثة أوجه جائزة وواحد ممتنع:</p>
+      <ul style="margin-top:10px;">
+        <li><strong>١ — القطع:</strong> الوقف على آخر السورة الأولى ثم الإتيان بالبسملة ثم الابتداء بالسورة الثانية.</li>
+        <li><strong>٢ — الوصل بالبسملة:</strong> وصل آخر السورة بالبسملة بأول السورة التالية بنَفَس واحد.</li>
+        <li><strong>٣ — الوصل الكامل:</strong> وصل الثلاثة: آخر السورة + البسملة + أول التالية دون توقف.</li>
+        <li><strong style="color:var(--burgundy);">الممتنع:</strong> الوقف على البسملة وحدها بلا ختام للسورة ولا ابتداء للتالية — لأن البسملة لآوائل السور لا لأواخرها.</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h3>⚠️ سورة براءة (التوبة) — حكم خاص</h3>
+      <p>عند الانتقال من سورة الأنفال إلى سورة براءة يجوز ثلاثة أوجه: <strong>القطع</strong> (الوقف مع التنفس) — <strong>السكت</strong> (قطع الصوت بلا تنفس) — <strong>الوصل</strong> (بدون بسملة). ولا يُؤتى بالبسملة هنا اتفاقًا. وسبب ذلك أن براءة نزلت بالسيف والعهد ولا تناسبها الرحمة في أولها.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">الاستعاذة</div>
+          أعوذ بالله من الشيطان الرجيم — واجبة عند ابتداء التلاوة، مستحبة عند الاستئناف بعد قطع.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--gold);box-shadow:0 0 0 2px var(--gold);"></div>
+        <div class="timeline-content">
+          <div class="timeline-title" style="color:var(--gold);">البسملة</div>
+          سنة في أول كل سورة إلا براءة — ولا بسملة في وسط السور.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--teal);box-shadow:0 0 0 2px var(--teal);"></div>
+        <div class="timeline-content">
+          <div class="timeline-title" style="color:var(--teal);">الابتداء</div>
+          يُستحب الابتداء ببداية الآية — وإن اضطر فمن الكلمة التامة — ولا يُبتدأ بما يُوهم معنى فاسدًا.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== QALQALAH SECTION ====== -->
+  <div class="section" id="section-qalqalah">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--teal-light); font-size:1.4rem; color:var(--teal);">🔔</div>
+      <div>
+        <div class="section-title">القلقلة</div>
+        <div class="section-desc">اضطراب الصوت عند النطق بالحرف الساكن حتى يُسمع له نبرة قوية</div>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card teal">
+        <div class="card-icon">📖</div>
+        <div class="card-title">التعريف</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> الاضطراب والتحرك.<br>
+          <strong>اصطلاحاً:</strong> اضطراب الصوت عند النطق بالحرف الساكن حتى يُسمع له نبرة قوية تشبه الصوت المركّب بين حركتين.
+        </div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">🔤</div>
+        <div class="card-title">حروفها الخمسة</div>
+        <div class="card-body">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+            <span style="font-family:'Amiri',serif;font-size:2.2rem;color:var(--teal);background:var(--teal-light);padding:8px 16px;border-radius:10px;">ق</span>
+            <span style="font-family:'Amiri',serif;font-size:2.2rem;color:var(--green);background:var(--green-light);padding:8px 16px;border-radius:10px;">ط</span>
+            <span style="font-family:'Amiri',serif;font-size:2.2rem;color:var(--burgundy);background:var(--burgundy-light);padding:8px 16px;border-radius:10px;">ب</span>
+            <span style="font-family:'Amiri',serif;font-size:2.2rem;color:var(--blue);background:var(--blue-light);padding:8px 16px;border-radius:10px;">ج</span>
+            <span style="font-family:'Amiri',serif;font-size:2.2rem;color:var(--gold);background:var(--gold-pale);padding:8px 16px;border-radius:10px;">د</span>
+          </div>
+          <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light);">للحفظ: <strong>قُطْبُ جَدّ</strong></p>
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">شرطها</div>
+        <div class="card-body">
+          تكون القلقلة عند <strong>سكون الحرف</strong> — سواء كان ذلك:<br>
+          • سكوناً أصلياً وصلاً ووقفاً<br>
+          • أو سكوناً عارضاً للوقف
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ مراتب القلقلة الأربع ✦</div>
+
+    <div class="cards-grid">
+      <div class="card burgundy">
+        <div class="card-icon">🔴</div>
+        <div class="card-title">المرتبة الأولى — الأعلى</div>
+        <div class="card-body">
+          القلقلة في <strong>الطاء</strong> عند الوقف على الساكن المشدد.<br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--burgundy);">﴿الحَقّ﴾ — ﴿يَبُطّ﴾</span>
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">🟠</div>
+        <div class="card-title">المرتبة الثانية — الأوسط</div>
+        <div class="card-body">
+          في <strong>الجيم</strong> عند الساكن الموقوف عليه.<br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--teal);">﴿خَلَّاق﴾</span>
+        </div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">🟡</div>
+        <div class="card-title">المرتبة الثالثة</div>
+        <div class="card-body">
+          في الحروف الثلاثة الأخرى (ق ب د) عند الساكن الموصول.<br>
+          <span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--green);">﴿خَلقَنَا﴾</span>
+        </div>
+      </div>
+      <div class="card gold">
+        <div class="card-icon">🟢</div>
+        <div class="card-title">المرتبة الرابعة — الأدنى</div>
+        <div class="card-body">
+          في الحرف المتحرك — لا قلقلة حقيقية بل أصلها فقط مثل الغنة في النون والميم المظهرتين والمتحركتين.
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>🎯 كيفية أداء القلقلة</h3>
+      <p>القلقلة تابعة لما قبلها: إن كان ما قبلها مفتوحاً كانت قريبة من الفتح <span style="font-family:'Amiri',serif;font-size:1.1rem;">﴿أَقرَب﴾</span>، وإن كان مكسوراً كانت قريبة من الكسر <span style="font-family:'Amiri',serif;font-size:1.1rem;">﴿إِقرَأ﴾</span>، وإن كان مضموماً كانت قريبة من الضم <span style="font-family:'Amiri',serif;font-size:1.1rem;">﴿أُقتُلوا﴾</span>.</p>
+    </div>
+
+    <div class="rule-box">
+      <h3>📝 أمثلة قرآنية</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:10px;">
+        <div style="text-align:center;padding:14px;background:#fff;border-radius:10px;box-shadow:var(--shadow);">
+          <div style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">﴿قُلْ هُوَ اللَّهُ أَحَد﴾</div>
+          <div style="font-size:0.75rem;color:var(--text-light);margin-top:4px;">قلقلة في القاف والدال</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:#fff;border-radius:10px;box-shadow:var(--shadow);">
+          <div style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">﴿وَالطَّارِق﴾</div>
+          <div style="font-size:0.75rem;color:var(--text-light);margin-top:4px;">قلقلة في الطاء والقاف</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:#fff;border-radius:10px;box-shadow:var(--shadow);">
+          <div style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">﴿وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَد﴾</div>
+          <div style="font-size:0.75rem;color:var(--text-light);margin-top:4px;">قلقلة في الدال</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:#fff;border-radius:10px;box-shadow:var(--shadow);">
+          <div style="font-family:'Amiri',serif;font-size:1.4rem;color:var(--green);">﴿تَبَّت يَدَا أَبِي لَهَب﴾</div>
+          <div style="font-size:0.75rem;color:var(--text-light);margin-top:4px;">قلقلة في الباء</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h3>⚠️ الفرق بين القلقلة والروم والإشمام</h3>
+      <p><strong>القلقلة:</strong> اضطراب صوتي يلحق الحرف الساكن ذا الشدة والجهر.<br>
+      <strong>الروم:</strong> الإتيان ببعض الحركة عند الوقف — جائز في المرفوع والمجرور.<br>
+      <strong>الإشمام:</strong> ضمّ الشفتين بعد الوقف إشارةً إلى الضمة — لا صوت فيه.</p>
+    </div>
+  </div>
+
+  <!-- ====== TAFKHIM SECTION ====== -->
+  <div class="section" id="section-tafkhim">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--orange-light); font-size:1.4rem; color:var(--orange);">📣</div>
+      <div>
+        <div class="section-title">التفخيم والترقيق</div>
+        <div class="section-desc">أحكام تغليظ الحروف وترقيقها — مع أحكام لفظ الجلالة واللام</div>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card orange">
+        <div class="card-icon">🔊</div>
+        <div class="card-title">التفخيم</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> التسمين والتضخيم.<br>
+          <strong>اصطلاحاً:</strong> سِمَن يدخل على صوت الحرف فيمتلئ الفم بصداه عند النطق به. وهو من صفات حروف الاستعلاء السبعة.
+        </div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">🎵</div>
+        <div class="card-title">الترقيق</div>
+        <div class="card-body">
+          <strong>لغةً:</strong> التنحيف والنحول.<br>
+          <strong>اصطلاحاً:</strong> نحافة تدخل على صوت الحرف فلا يمتلئ الفم بصداه. وهو من صفات حروف الاستفال.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ حروف الاستعلاء — دائماً مفخّمة ✦</div>
+
+    <div style="background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow);margin-bottom:20px;">
+      <p style="margin-bottom:14px;font-weight:700;color:var(--text);">حروف الاستعلاء السبعة — <em style="color:var(--orange);">خُصَّ ضَغطٍ قِظ</em></p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">خ</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">ص</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">ض</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">غ</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">ط</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">ق</span>
+        <span style="font-family:'Amiri',serif;font-size:2rem;background:var(--orange-light);color:var(--orange);padding:10px 18px;border-radius:10px;border:2px solid #ffc090;">ظ</span>
+      </div>
+      <p style="margin-top:12px;font-size:0.85rem;color:var(--text-light);">هذه الحروف تُفخَّم دائماً سواء كانت متحركة أو ساكنة — دون استثناء.</p>
+    </div>
+
+    <div class="divider">✦ لفظ الجلالة (الله) ✦</div>
+
+    <div class="cards-grid">
+      <div class="card green" style="grid-column:span 1;">
+        <div class="card-icon">☀️</div>
+        <div class="card-title">تفخيم لفظ الجلالة</div>
+        <div class="card-body">
+          يُفخَّم لفظ (الله) إذا جاء قبله <strong>فتح أو ضم</strong>.<br><br>
+          <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">﴿قَالَ اللَّهُ﴾ — ﴿وَجهُ اللَّهِ﴾</span><br>
+          <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">﴿عَبدُ اللَّه﴾ — ﴿رَسُولُ اللَّه﴾</span>
+        </div>
+      </div>
+      <div class="card teal" style="grid-column:span 1;">
+        <div class="card-icon">🌙</div>
+        <div class="card-title">ترقيق لفظ الجلالة</div>
+        <div class="card-body">
+          يُرقَّق لفظ (الله) إذا جاء قبله <strong>كسر</strong> — سواء كانت الكسرة أصلية أو عارضة، متصلة أو منفصلة.<br><br>
+          <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--teal);">﴿بِسمِ اللَّه﴾ — ﴿لِلَّه﴾</span><br>
+          <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--teal);">﴿وَاتَّقُوا اللَّهَ﴾ — ﴿فِي اللَّهِ﴾</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 تنبيه ابن الجزري</h3>
+      <p>قال ابن الجزري: «وفخّم اللام من اسم الله عن فتح أو ضم كعبدِ الله» — فالضابط هو حركة ما قبل اللام من لفظ الجلالة لا ما قبل الاسم كله.</p>
+    </div>
+
+    <div class="divider">✦ الفرق بين الضاد والظاء ✦</div>
+
+    <table class="rules-table">
+      <tr><th>وجه المقارنة</th><th>الضاد ض</th><th>الظاء ظ</th></tr>
+      <tr>
+        <td style="font-weight:700;">المخرج</td>
+        <td>إحدى حافتَي اللسان مع ما يليها من الأضراس العليا</td>
+        <td>ظهر طرف اللسان مع أطراف الثنايا العليا</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;">الصفات المشتركة</td>
+        <td colspan="2">الجهر، الرخاوة، الاستعلاء، الإطباق، الإصمات</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;">الصفة المنفردة</td>
+        <td><span class="badge badge-green">الاستطالة</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;">مثال</td>
+        <td class="quran-cell">﴿الضَّالِّين﴾</td>
+        <td class="quran-cell">﴿وَلَا الظَّالِمِين﴾</td>
+      </tr>
+    </table>
+
+    <div class="warning-box">
+      <h3>⚠️ تنبيه مهم في الضلال والظلم</h3>
+      <p>الضلال بالضاد هو ضد الهدى، والظلم بالظاء هو وضع الشيء في غير موضعه — فالخلط بينهما يُغيّر المعنى ويقع في اللحن الجلي المحرّم.</p>
+    </div>
+  </div>
+
+  <!-- ====== RA SECTION ====== -->
+  <div class="section" id="section-ra">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--blue-light); font-size:1.8rem; font-family:'Amiri',serif; color:var(--blue);">ر</div>
+      <div>
+        <div class="section-title">أحكام الراء — تفخيماً وترقيقاً</div>
+        <div class="section-desc">أربع حالات للراء الواردة في القرآن الكريم</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 مدخل</h3>
+      <p>الراء من الحروف التي يجوز فيها التفخيم والترقيق بحسب حالتها وما يجاورها. وقد جمع الكتاب حالاتها في أربع: <strong>الراء المرققة قولاً واحداً، الراء الدائرة بين الترقيق والتفخيم (الترقيق أولى)، الراء الدائرة (التفخيم أولى)، والراء المفخمة قولاً واحداً</strong>.</p>
+    </div>
+
+    <div class="accordion" id="acc-ra-1">
+      <div class="accordion-header" onclick="toggleAccordion('acc-ra-1')">
+        <span>🔵 الحالة الأولى — الراء المرققة قولاً واحداً</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 الصور</h3>
+          <ul>
+            <li><strong>١ —</strong> الراء المكسورة — سواء في أول الكلمة أو وسطها، وصلاً لا وقفاً.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿رِجَال﴾ — ﴿مَرِيَماً﴾</span></li>
+            <li style="margin-top:10px;"><strong>٢ —</strong> الراء الساكنة وقبلها كسر أصلي وبعدها ليس حرف استعلاء.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿فِرعَون﴾ — ﴿مِرية﴾</span></li>
+            <li style="margin-top:10px;"><strong>٣ —</strong> الراء الساكنة المسبوقة بياء ساكنة.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿خَيرٌ﴾</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-ra-2">
+      <div class="accordion-header" onclick="toggleAccordion('acc-ra-2')">
+        <span>🟢 الحالة الثانية — المفخمة قولاً واحداً</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 الصور</h3>
+          <ul>
+            <li><strong>١ —</strong> الراء المفتوحة أو المضمومة.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿رَحمَة﴾ — ﴿رُزِقنَا﴾ — ﴿الكِتَابُ﴾</span></li>
+            <li style="margin-top:10px;"><strong>٢ —</strong> الراء الساكنة وقبلها فتح أو ضم.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿البَشَر﴾ — ﴿بِالنُّذُر﴾ — ﴿وَالعَصر﴾</span></li>
+            <li style="margin-top:10px;"><strong>٣ —</strong> الراء الساكنة وقبلها كسر عارض (لا أصلي) — كهمزة الوصل.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿ارجِعوا﴾ — ﴿ارزُقنَا﴾</span></li>
+            <li style="margin-top:10px;"><strong>٤ —</strong> الراء الساكنة وقبلها كسر أصلي وبعدها حرف استعلاء في نفس الكلمة.<br><span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿إِرصَاداً﴾ — ﴿قِرطَاس﴾</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-ra-3">
+      <div class="accordion-header" onclick="toggleAccordion('acc-ra-3')">
+        <span>🟡 الحالة الثالثة — الراء الدائرة (الترقيق أولى)</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 الحالة</h3>
+          <p>الراء الموقوف عليها بالسكون وقبلها ساكن مستعل وقبل الساكن كسر — وهي في حالة الوصل مفتوحة.<br>
+          هذا النوع لم يرد في القرآن إلا في لفظ واحد: <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">﴿مِصرَ﴾</span> غير المنون، وقد وقع في أربعة مواضع في القرآن.</p>
+        </div>
+        <div class="info-box">
+          <h3>المواضع الأربعة</h3>
+          <p>
+            <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿أَن تَبَوَّءَالقَومِكُمَا بِمِصرَ بُيُونًا﴾</span> — يونس<br>
+            <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿ادخُلُوا مِصرَ إِن شَاءَ اللَّهُ﴾</span> — يوسف<br>
+            <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿قَالَ الَّذِي اشتَرَاهُ مِن مِّصرَ﴾</span> — يوسف<br>
+            <span style="font-family:'Amiri',serif;font-size:1.2rem;">﴿قَالَ يَنقَومِ أَلَيسَ لِي مُلكُ مِصرَ﴾</span> — الزخرف
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-ra-4">
+      <div class="accordion-header" onclick="toggleAccordion('acc-ra-4')">
+        <span>🟠 الحالة الرابعة — الدائرة (التفخيم أولى)</span>
+        <em class="accordion-arrow">▼</em>
+      </div>
+      <div class="accordion-body">
+        <div class="rule-box">
+          <h3>📖 الحالة</h3>
+          <p>الراء الموقوف عليها بالسكون وقبلها ساكن مستعل وقبل الساكن كسر — وهي في الوصل مكسورة.<br>
+          مثال: <span style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--green);">﴿بِالنُّذُر﴾ — ﴿بِالسِّحر﴾</span></p>
+        </div>
+        <div class="info-box">
+          <h3>الضابط</h3>
+          <p>التفخيم أولى في هذه الحالة لأن حرف الاستعلاء الواقع قبل الراء مباشرة يمنعها من الترقيق، ويعتبر حاجزاً حصيناً.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">✦ ملخص سريع لأحكام الراء ✦</div>
+
+    <table class="rules-table">
+      <tr><th>الحالة</th><th>الحكم</th><th>المثال</th></tr>
+      <tr><td>مكسورة</td><td><span class="badge badge-teal">ترقيق</span></td><td class="quran-cell">﴿رِزق﴾</td></tr>
+      <tr><td>مفتوحة أو مضمومة</td><td><span class="badge badge-gold">تفخيم</span></td><td class="quran-cell">﴿رَحمَة — رُزِق﴾</td></tr>
+      <tr><td>ساكنة قبلها فتح أو ضم</td><td><span class="badge badge-gold">تفخيم</span></td><td class="quran-cell">﴿البَشَر﴾</td></tr>
+      <tr><td>ساكنة قبلها كسر أصلي</td><td><span class="badge badge-teal">ترقيق</span></td><td class="quran-cell">﴿فِرعَون﴾</td></tr>
+      <tr><td>ساكنة قبلها كسر + حرف استعلاء</td><td><span class="badge badge-gold">تفخيم</span></td><td class="quran-cell">﴿قِرطَاس﴾</td></tr>
+      <tr><td>ساكنة قبلها كسر عارض</td><td><span class="badge badge-gold">تفخيم</span></td><td class="quran-cell">﴿ارجِعوا﴾</td></tr>
+      <tr><td>﴿مِصرَ﴾ وقفاً</td><td><span class="badge badge-teal">ترقيق أولى</span></td><td class="quran-cell">﴿مِصرَ﴾</td></tr>
+      <tr><td>ساكنة مسبوقة بياء</td><td><span class="badge badge-teal">ترقيق</span></td><td class="quran-cell">﴿خَيرٌ﴾</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== MIND MAP SECTION ====== -->
+  <div class="section" id="section-mindmap">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--green-light);">🗺️</div>
+      <div>
+        <div class="section-title">خريطة ذهنية تفاعلية</div>
+        <div class="section-desc">نظرة شاملة على علم التجويد — اضغط على أي موضوع لمزيد من التفاصيل</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);overflow-x:auto;">
+      <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px;font-family:'Cairo',sans-serif;" id="mindmap-svg">
+        <defs>
+          <filter id="shadow-f"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+        </defs>
+
+        <!-- Center node -->
+        <ellipse cx="450" cy="310" rx="90" ry="45" fill="#1a5c38" filter="url(#shadow-f)"/>
+        <text x="450" y="305" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">علم التجويد</text>
+        <text x="450" y="322" text-anchor="middle" fill="#f0c060" font-size="10">غاية المريد</text>
+
+        <!-- Branch lines -->
+        <!-- Top -->
+        <line x1="450" y1="265" x2="450" y2="185" stroke="#c8922a" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Top-right -->
+        <line x1="530" y1="285" x2="680" y2="180" stroke="#1a6b6b" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Right -->
+        <line x1="540" y1="310" x2="710" y2="310" stroke="#1e4d8c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Bottom-right -->
+        <line x1="510" y1="345" x2="680" y2="440" stroke="#7b1f2e" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Bottom -->
+        <line x1="450" y1="355" x2="450" y2="435" stroke="#c15a00" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Bottom-left -->
+        <line x1="390" y1="345" x2="220" y2="440" stroke="#5c2d7a" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Left -->
+        <line x1="360" y1="310" x2="190" y2="310" stroke="#2e7d52" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Top-left -->
+        <line x1="370" y1="285" x2="220" y2="180" stroke="#c8922a" stroke-width="2" stroke-dasharray="5,3"/>
+
+        <!-- NODE: النون الساكنة — Top -->
+        <g class="mm-node" onclick="mmClick('noon')" style="cursor:pointer">
+          <rect x="375" y="140" width="150" height="46" rx="12" fill="#e8f5ee" stroke="#1a5c38" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="450" y="158" text-anchor="middle" fill="#1a5c38" font-size="11" font-weight="bold">النون الساكنة</text>
+          <text x="450" y="175" text-anchor="middle" fill="#5a4a3a" font-size="9">إظهار | إدغام | إقلاب | إخفاء</text>
+        </g>
+
+        <!-- NODE: الميم الساكنة — Top-right -->
+        <g class="mm-node" onclick="mmClick('meem')" style="cursor:pointer">
+          <rect x="605" y="138" width="150" height="46" rx="12" fill="#e0f4f4" stroke="#1a6b6b" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="680" y="156" text-anchor="middle" fill="#1a6b6b" font-size="11" font-weight="bold">الميم الساكنة</text>
+          <text x="680" y="173" text-anchor="middle" fill="#5a4a3a" font-size="9">إخفاء | إدغام | إظهار</text>
+        </g>
+
+        <!-- NODE: المد والقصر — Right -->
+        <g class="mm-node" onclick="mmClick('medd')" style="cursor:pointer">
+          <rect x="718" y="287" width="148" height="46" rx="12" fill="#e8f0fc" stroke="#1e4d8c" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="792" y="305" text-anchor="middle" fill="#1e4d8c" font-size="11" font-weight="bold">المد والقصر</text>
+          <text x="792" y="322" text-anchor="middle" fill="#5a4a3a" font-size="9">طبيعي | متصل | منفصل | لازم</text>
+        </g>
+
+        <!-- NODE: المخارج والصفات — Bottom-right -->
+        <g class="mm-node" onclick="mmClick('makharij')" style="cursor:pointer">
+          <rect x="600" y="418" width="158" height="46" rx="12" fill="#fdeef0" stroke="#7b1f2e" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="679" y="436" text-anchor="middle" fill="#7b1f2e" font-size="11" font-weight="bold">المخارج والصفات</text>
+          <text x="679" y="453" text-anchor="middle" fill="#5a4a3a" font-size="9">١٧ مخرجاً — ٥ مواضع</text>
+        </g>
+
+        <!-- NODE: القلقلة — Bottom -->
+        <g class="mm-node" onclick="mmClick('qalqalah')" style="cursor:pointer">
+          <rect x="375" y="443" width="150" height="46" rx="12" fill="#fff0e0" stroke="#c15a00" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="450" y="461" text-anchor="middle" fill="#c15a00" font-size="11" font-weight="bold">القلقلة</text>
+          <text x="450" y="478" text-anchor="middle" fill="#5a4a3a" font-size="9">قطب جد — ٤ مراتب</text>
+        </g>
+
+        <!-- NODE: الراء — Bottom-left -->
+        <g class="mm-node" onclick="mmClick('ra')" style="cursor:pointer">
+          <rect x="142" y="418" width="150" height="46" rx="12" fill="#f3ecfa" stroke="#5c2d7a" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="217" y="436" text-anchor="middle" fill="#5c2d7a" font-size="11" font-weight="bold">أحكام الراء</text>
+          <text x="217" y="453" text-anchor="middle" fill="#5a4a3a" font-size="9">تفخيم | ترقيق | ٤ حالات</text>
+        </g>
+
+        <!-- NODE: اللامات — Left -->
+        <g class="mm-node" onclick="mmClick('lam')" style="cursor:pointer">
+          <rect x="42" y="287" width="150" height="46" rx="12" fill="#e8f5ee" stroke="#2e7d52" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="117" y="305" text-anchor="middle" fill="#2e7d52" font-size="11" font-weight="bold">اللامات السواكن</text>
+          <text x="117" y="322" text-anchor="middle" fill="#5a4a3a" font-size="9">شمسية | قمرية | لام الفعل</text>
+        </g>
+
+        <!-- NODE: الوقف والابتداء — Top-left -->
+        <g class="mm-node" onclick="mmClick('waqf')" style="cursor:pointer">
+          <rect x="142" y="138" width="158" height="46" rx="12" fill="#fef3cd" stroke="#c8922a" stroke-width="2" filter="url(#shadow-f)"/>
+          <text x="221" y="156" text-anchor="middle" fill="#8a5a00" font-size="11" font-weight="bold">الوقف والابتداء</text>
+          <text x="221" y="173" text-anchor="middle" fill="#5a4a3a" font-size="9">تام | كافٍ | حسن | قبيح</text>
+        </g>
+
+        <!-- Click instruction -->
+        <text x="450" y="595" text-anchor="middle" fill="#aaa" font-size="10">اضغط على أي موضوع للانتقال إليه</text>
+      </svg>
+    </div>
+
+    <div id="mm-info" style="display:none;margin-top:20px;" class="info-box">
+      <h3 id="mm-info-title"></h3>
+      <p id="mm-info-body"></p>
+      <button class="btn btn-green" id="mm-info-btn" style="margin-top:12px;"></button>
+    </div>
+
+    <div class="divider">✦ مراجعة سريعة ✦</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);">
+        <div style="font-weight:800;color:var(--green);margin-bottom:10px;font-size:0.95rem;">📋 ملخص أحكام النون الساكنة</div>
+        <div style="font-size:0.84rem;line-height:2.2;color:var(--text-light);">
+          <span style="color:var(--green);font-weight:700;">إظهار:</span> ء ه ع ح غ خ<br>
+          <span style="color:var(--teal);font-weight:700;">إدغام بغنة:</span> ي ن م و<br>
+          <span style="color:var(--blue);font-weight:700;">إدغام بلا غنة:</span> ل ر<br>
+          <span style="color:var(--burgundy);font-weight:700;">إقلاب:</span> ب<br>
+          <span style="color:var(--orange);font-weight:700;">إخفاء:</span> باقي ١٥ حرفاً
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);">
+        <div style="font-weight:800;color:var(--teal);margin-bottom:10px;font-size:0.95rem;">📋 ملخص المدود</div>
+        <div style="font-size:0.84rem;line-height:2.2;color:var(--text-light);">
+          <span style="color:var(--green);font-weight:700;">٢ حركات:</span> الطبيعي — البدل — الصلة الصغرى<br>
+          <span style="color:var(--teal);font-weight:700;">٤ أو ٥:</span> المتصل — المنفصل — الصلة الكبرى<br>
+          <span style="color:var(--burgundy);font-weight:700;">٦ حركات:</span> اللازم — واجب<br>
+          <span style="color:var(--orange);font-weight:700;">٢ أو ٤ أو ٦:</span> العارض للسكون — اللين
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);">
+        <div style="font-weight:800;color:var(--orange);margin-bottom:10px;font-size:0.95rem;">📋 ملخص أحكام الراء</div>
+        <div style="font-size:0.84rem;line-height:2.2;color:var(--text-light);">
+          <span style="color:var(--orange);font-weight:700;">تفخيم دائم:</span> مفتوحة — مضمومة — ساكنة بعد فتح/ضم<br>
+          <span style="color:var(--teal);font-weight:700;">ترقيق دائم:</span> مكسورة — ساكنة بعد كسر أصلي<br>
+          <span style="color:var(--gold);font-weight:700;">تفخيم حين كسر عارض:</span> ارجعوا<br>
+          <span style="color:var(--purple);font-weight:700;">جائزان:</span> ﴿مِصرَ﴾ وقفاً
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);">
+        <div style="font-weight:800;color:var(--burgundy);margin-bottom:10px;font-size:0.95rem;">📋 ملخص أنواع الوقف</div>
+        <div style="font-size:0.84rem;line-height:2.2;color:var(--text-light);">
+          <span style="color:var(--green);font-weight:700;">تام:</span> تمّ المعنى + انقطع اللفظ ✅<br>
+          <span style="color:var(--teal);font-weight:700;">كافٍ:</span> تمّ المعنى + تعلق معنوي ✅<br>
+          <span style="color:var(--gold);font-weight:700;">حسن:</span> لم يتم + يُبتدأ بما بعده ✅<br>
+          <span style="color:var(--burgundy);font-weight:700;">قبيح:</span> لم يتم + لا يُبتدأ ❌
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== QUIZ SECTION ====== -->
+  <div class="section" id="section-quiz">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--gold-pale);">✏️</div>
+      <div>
+        <div class="section-title">اختبر معلوماتك</div>
+        <div class="section-desc">أسئلة شاملة من أحكام التجويد</div>
+      </div>
+    </div>
+
+    <div id="quiz-container">
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-q"><div class="quiz-num">١</div><div>ما هي حروف الإظهار الحلقي؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(1, 'a')"><span class="opt-letter">أ</span> ي ر م ل و ن</div>
+          <div class="quiz-option" onclick="answerQ(1, 'b')"><span class="opt-letter">ب</span> ء ه ع ح غ خ</div>
+          <div class="quiz-option" onclick="answerQ(1, 'c')"><span class="opt-letter">ج</span> ص ذ ث ك ج ش</div>
+          <div class="quiz-option" onclick="answerQ(1, 'd')"><span class="opt-letter">د</span> ب م و</div>
+        </div>
+        <div class="quiz-feedback" id="fb1"></div>
+      </div>
+<!-- NOTE: quiz questions below -->
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-q"><div class="quiz-num">٢</div><div>ما الحكم في كلمة ﴿مَنْ آمَنَ﴾ عند قراءتها متصلة؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(2, 'a')"><span class="opt-letter">أ</span> إدغام بغنة</div>
+          <div class="quiz-option" onclick="answerQ(2, 'b')"><span class="opt-letter">ب</span> إدغام بلا غنة</div>
+          <div class="quiz-option" onclick="answerQ(2, 'c')"><span class="opt-letter">ج</span> إظهار حلقي</div>
+          <div class="quiz-option" onclick="answerQ(2, 'd')"><span class="opt-letter">د</span> إخفاء حقيقي</div>
+        </div>
+        <div class="quiz-feedback" id="fb2"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-q"><div class="quiz-num">٣</div><div>كم يُمدّ المدّ اللازم؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(3, 'a')"><span class="opt-letter">أ</span> حركتان</div>
+          <div class="quiz-option" onclick="answerQ(3, 'b')"><span class="opt-letter">ب</span> أربع حركات</div>
+          <div class="quiz-option" onclick="answerQ(3, 'c')"><span class="opt-letter">ج</span> ست حركات — واجب</div>
+          <div class="quiz-option" onclick="answerQ(3, 'd')"><span class="opt-letter">د</span> يجوز من حركتين إلى ست</div>
+        </div>
+        <div class="quiz-feedback" id="fb3"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-q"><div class="quiz-num">٤</div><div>ما حكم الميم الساكنة عند الباء؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(4, 'a')"><span class="opt-letter">أ</span> إظهار شفوي</div>
+          <div class="quiz-option" onclick="answerQ(4, 'b')"><span class="opt-letter">ب</span> إدغام متماثلين</div>
+          <div class="quiz-option" onclick="answerQ(4, 'c')"><span class="opt-letter">ج</span> إخفاء شفوي مع الغنة</div>
+          <div class="quiz-option" onclick="answerQ(4, 'd')"><span class="opt-letter">د</span> إدغام بلا غنة</div>
+        </div>
+        <div class="quiz-feedback" id="fb4"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-q"><div class="quiz-num">٥</div><div>ما هي أفضل مراتب التلاوة؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(5, 'a')"><span class="opt-letter">أ</span> الحدر</div>
+          <div class="quiz-option" onclick="answerQ(5, 'b')"><span class="opt-letter">ب</span> التدوير</div>
+          <div class="quiz-option" onclick="answerQ(5, 'c')"><span class="opt-letter">ج</span> الترتيل</div>
+          <div class="quiz-option" onclick="answerQ(5, 'd')"><span class="opt-letter">د</span> كلها متساوية</div>
+        </div>
+        <div class="quiz-feedback" id="fb5"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6">
+        <div class="quiz-q"><div class="quiz-num">٦</div><div>حروف الإخفاء الحقيقي كم عددها؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(6, 'a')"><span class="opt-letter">أ</span> ٦ حروف</div>
+          <div class="quiz-option" onclick="answerQ(6, 'b')"><span class="opt-letter">ب</span> ١٠ حروف</div>
+          <div class="quiz-option" onclick="answerQ(6, 'c')"><span class="opt-letter">ج</span> ١٥ حرفاً</div>
+          <div class="quiz-option" onclick="answerQ(6, 'd')"><span class="opt-letter">د</span> ٢٨ حرفاً</div>
+        </div>
+        <div class="quiz-feedback" id="fb6"></div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card" id="q7">
+        <div class="quiz-q"><div class="quiz-num">٧</div><div>ما معنى الإقلاب في النون الساكنة؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(7, 'a')"><span class="opt-letter">أ</span> إخراج النون من مخرجها بدون غنة</div>
+          <div class="quiz-option" onclick="answerQ(7, 'b')"><span class="opt-letter">ب</span> قلب النون ميماً مع الغنة عند الباء</div>
+          <div class="quiz-option" onclick="answerQ(7, 'c')"><span class="opt-letter">ج</span> إدغام النون في حرف آخر</div>
+          <div class="quiz-option" onclick="answerQ(7, 'd')"><span class="opt-letter">د</span> قلب النون واواً</div>
+        </div>
+        <div class="quiz-feedback" id="fb7"></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card" id="q8">
+        <div class="quiz-q"><div class="quiz-num">٨</div><div>ما عدد مخارج الحروف عند المحققين؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(8, 'a')"><span class="opt-letter">أ</span> ١٤ مخرجاً</div>
+          <div class="quiz-option" onclick="answerQ(8, 'b')"><span class="opt-letter">ب</span> ١٧ مخرجاً</div>
+          <div class="quiz-option" onclick="answerQ(8, 'c')"><span class="opt-letter">ج</span> ٢٠ مخرجاً</div>
+          <div class="quiz-option" onclick="answerQ(8, 'd')"><span class="opt-letter">د</span> ٢٨ مخرجاً</div>
+        </div>
+        <div class="quiz-feedback" id="fb8"></div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card" id="q9">
+        <div class="quiz-q"><div class="quiz-num">٩</div><div>ما حروف القلقلة الخمسة؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(9, 'a')"><span class="opt-letter">أ</span> ق ط ب ج د</div>
+          <div class="quiz-option" onclick="answerQ(9, 'b')"><span class="opt-letter">ب</span> ص ط ق ظ خ</div>
+          <div class="quiz-option" onclick="answerQ(9, 'c')"><span class="opt-letter">ج</span> ب م و ي ن</div>
+          <div class="quiz-option" onclick="answerQ(9, 'd')"><span class="opt-letter">د</span> ف ح ث هـ ش</div>
+        </div>
+        <div class="quiz-feedback" id="fb9"></div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card" id="q10">
+        <div class="quiz-q"><div class="quiz-num">١٠</div><div>متى يُفخَّم لفظ الجلالة (الله)؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(10, 'a')"><span class="opt-letter">أ</span> دائماً في جميع الأحوال</div>
+          <div class="quiz-option" onclick="answerQ(10, 'b')"><span class="opt-letter">ب</span> إذا جاء قبله فتح أو ضم</div>
+          <div class="quiz-option" onclick="answerQ(10, 'c')"><span class="opt-letter">ج</span> إذا جاء قبله كسر</div>
+          <div class="quiz-option" onclick="answerQ(10, 'd')"><span class="opt-letter">د</span> عند الوقف عليه فقط</div>
+        </div>
+        <div class="quiz-feedback" id="fb10"></div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="quiz-card" id="q11">
+        <div class="quiz-q"><div class="quiz-num">١١</div><div>ما حكم الراء في كلمة ﴿فِرعَون﴾؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(11, 'a')"><span class="opt-letter">أ</span> تفخيم — لأن بعدها فتح</div>
+          <div class="quiz-option" onclick="answerQ(11, 'b')"><span class="opt-letter">ب</span> ترقيق — لأن قبلها كسر أصلي</div>
+          <div class="quiz-option" onclick="answerQ(11, 'c')"><span class="opt-letter">ج</span> جائزان</div>
+          <div class="quiz-option" onclick="answerQ(11, 'd')"><span class="opt-letter">د</span> تفخيم — لأن بعدها عين</div>
+        </div>
+        <div class="quiz-feedback" id="fb11"></div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-card" id="q12">
+        <div class="quiz-q"><div class="quiz-num">١٢</div><div>ما الفرق بين اللحن الجلي واللحن الخفي؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(12, 'a')"><span class="opt-letter">أ</span> اللحن الجلي: خطأ في الصفات / الخفي: خطأ في المخارج</div>
+          <div class="quiz-option" onclick="answerQ(12, 'b')"><span class="opt-letter">ب</span> اللحن الجلي: خطأ ظاهر يُغيّر المعنى / الخفي: إخلال بالصفات</div>
+          <div class="quiz-option" onclick="answerQ(12, 'c')"><span class="opt-letter">ج</span> اللحن الجلي: يُغتفر / الخفي: محرّم</div>
+          <div class="quiz-option" onclick="answerQ(12, 'd')"><span class="opt-letter">د</span> لا فرق بينهما</div>
+        </div>
+        <div class="quiz-feedback" id="fb12"></div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-card" id="q13">
+        <div class="quiz-q"><div class="quiz-num">١٣</div><div>كم عدد أوجه البسملة بين السورتين؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(13, 'a')"><span class="opt-letter">أ</span> وجه واحد فقط</div>
+          <div class="quiz-option" onclick="answerQ(13, 'b')"><span class="opt-letter">ب</span> وجهان</div>
+          <div class="quiz-option" onclick="answerQ(13, 'c')"><span class="opt-letter">ج</span> ثلاثة أوجه جائزة وواحد ممتنع</div>
+          <div class="quiz-option" onclick="answerQ(13, 'd')"><span class="opt-letter">د</span> أربعة أوجه كلها جائزة</div>
+        </div>
+        <div class="quiz-feedback" id="fb13"></div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-card" id="q14">
+        <div class="quiz-q"><div class="quiz-num">١٤</div><div>ما صفة الضاد المنفردة التي تميّزها عن الظاء؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(14, 'a')"><span class="opt-letter">أ</span> الجهر</div>
+          <div class="quiz-option" onclick="answerQ(14, 'b')"><span class="opt-letter">ب</span> الإطباق</div>
+          <div class="quiz-option" onclick="answerQ(14, 'c')"><span class="opt-letter">ج</span> الاستطالة</div>
+          <div class="quiz-option" onclick="answerQ(14, 'd')"><span class="opt-letter">د</span> الرخاوة</div>
+        </div>
+        <div class="quiz-feedback" id="fb14"></div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-card" id="q15">
+        <div class="quiz-q"><div class="quiz-num">١٥</div><div>ما حكم الوصل بالبسملة في الانتقال من سورة الأنفال إلى سورة التوبة (براءة)؟</div></div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answerQ(15, 'a')"><span class="opt-letter">أ</span> واجب</div>
+          <div class="quiz-option" onclick="answerQ(15, 'b')"><span class="opt-letter">ب</span> مستحب</div>
+          <div class="quiz-option" onclick="answerQ(15, 'c')"><span class="opt-letter">ج</span> ممتنع — لا يُؤتى بها اتفاقاً</div>
+          <div class="quiz-option" onclick="answerQ(15, 'd')"><span class="opt-letter">د</span> جائز كسائر السور</div>
+        </div>
+        <div class="quiz-feedback" id="fb15"></div>
+      </div>
+
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-num" id="score-display">٠/١٥</div>
+        <div class="score-msg" id="score-msg"></div>
+        <button class="btn btn-gold" style="margin-top:20px;" onclick="resetQuiz()">🔄 إعادة الاختبار</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  مستخرج من كتاب <span>غاية المريد في علم التجويد</span> — تأليف الشيخ عطية قابل نصر<br>
+  <span style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:4px;display:block;">مركز تعليمي تفاعلي — جميع المعلومات من الكتاب الأصلي</span>
+</div>
+
+<script>
+  // ====== Navigation ======
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    var sec = document.getElementById('section-' + id);
+    var tab = document.querySelector('[data-section="' + id + '"]');
+    if (sec) sec.classList.add('active');
+    if (tab) tab.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === 'meem') setTimeout(animateBars, 300);
+  }
+
+  // ====== Accordion ======
+  function toggleAccordion(id) {
+    const acc = document.getElementById(id);
+    const header = acc.querySelector('.accordion-header');
+    const body = acc.querySelector('.accordion-body');
+    const isOpen = header.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('open'));
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    if (!isOpen) {
+      header.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
+  // ====== Quiz ======
+  const answers = {
+    1: 'b', 2: 'c', 3: 'c', 4: 'c', 5: 'c', 6: 'c', 7: 'b', 8: 'b',
+    9: 'a', 10: 'b', 11: 'b', 12: 'b', 13: 'c', 14: 'c', 15: 'c'
+  };
+  const explanations = {
+    1: 'حروف الإظهار الحلقي ستة: ء ه ع ح غ خ — كلها من الحلق.',
+    2: 'الهمزة من حروف الإظهار الحلقي، فيُظهر عندها النون الساكنة.',
+    3: 'المد اللازم يُمدّ ست حركات وصلاً ووقفاً — وهو واجب لجميع القراء.',
+    4: 'الميم الساكنة عند الباء: إخفاء شفوي مع الغنة بمقدار حركتين.',
+    5: 'الترتيل أفضل المراتب لأن الله أمر به في قوله: وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا.',
+    6: 'حروف الإخفاء الحقيقي خمسة عشر حرفاً، وقيل للحفظ: صِفْ ذَا ثَنَا...',
+    7: 'الإقلاب: قلب النون الساكنة أو التنوين ميماً خالصة عند الباء مع الغنة.',
+    8: 'عدد مخارج الحروف سبعة عشر مخرجاً في خمس مواضع: الجوف، الحلق، اللسان، الشفتان، الخيشوم.',
+    9: 'حروف القلقلة خمسة يجمعها: قُطْبُ جَدّ — ق ط ب ج د.',
+    10: 'يُفخَّم لفظ الجلالة إذا وقع قبله فتح أو ضم، ويُرقَّق إذا وقع قبله كسر.',
+    11: 'الراء في ﴿فِرعَون﴾ ساكنة وقبلها كسر أصلي وليس بعدها حرف استعلاء في الكلمة، فحكمها الترقيق.',
+    12: 'اللحن الجلي: خطأ ظاهر يُغيّر المعنى — محرّم. اللحن الخفي: إخلال بالصفات كترك الغنة — مكروه.',
+    13: 'أوجه البسملة ثلاثة جائزة: القطع، الوصل بالبسملة، والوصل الكامل. والممتنع: الوقف على البسملة وحدها.',
+    14: 'الاستطالة هي الصفة المنفردة بالضاد وحده دون سائر حروف الاستعلاء.',
+    15: 'لا يُؤتى بالبسملة بين الأنفال والتوبة اتفاقاً، ويجوز القطع أو السكت أو الوصل.'
+  };
+
+  let answered = {};
+  let score = 0;
+  const TOTAL_Q = 15;
+
+  function answerQ(qNum, choice) {
+    if (answered[qNum]) return;
+    answered[qNum] = true;
+    const correct = answers[qNum];
+    const card = document.getElementById('q' + qNum);
+    const opts = card.querySelectorAll('.quiz-option');
+    const letters = ['a', 'b', 'c', 'd'];
+
+    opts.forEach((opt, i) => {
+      opt.style.pointerEvents = 'none';
+      if (letters[i] === correct) opt.classList.add('correct');
+      else if (letters[i] === choice && choice !== correct) opt.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('fb' + qNum);
+    fb.classList.add('show');
+    if (choice === correct) {
+      fb.classList.add('correct');
+      fb.textContent = '✅ إجابة صحيحة! ' + explanations[qNum];
+      score++;
+    } else {
+      fb.classList.add('wrong');
+      fb.textContent = '❌ إجابة خاطئة. ' + explanations[qNum];
+    }
+
+    if (Object.keys(answered).length === TOTAL_Q) {
+      setTimeout(showScore, 500);
+    }
+  }
+
+  function showScore() {
+    const scoreBox = document.getElementById('quiz-score');
+    const scoreDisplay = document.getElementById('score-display');
+    const scoreMsg = document.getElementById('score-msg');
+    scoreBox.classList.add('show');
+
+    const arabicNums = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١','١٢','١٣','١٤','١٥'];
+    scoreDisplay.textContent = arabicNums[score] + '/١٥';
+
+    if (score === 15) scoreMsg.textContent = '🌟 ممتاز! حافظت على جميع الإجابات — أنت متقن لأحكام التجويد!';
+    else if (score >= 12) scoreMsg.textContent = '👍 جيد جداً! تكاد تُتقن أحكام التجويد.';
+    else if (score >= 8) scoreMsg.textContent = '📚 جيد! راجع الأحكام وأعد المحاولة.';
+    else scoreMsg.textContent = '💪 لا تيأس! راجع المحتوى وأعد الاختبار — التكرار مفتاح الإتقان.';
+
+    scoreBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    answered = {};
+    score = 0;
+    document.querySelectorAll('.quiz-option').forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      o.style.pointerEvents = '';
+    });
+    document.querySelectorAll('.quiz-feedback').forEach(f => {
+      f.classList.remove('show', 'correct', 'wrong');
+      f.textContent = '';
+    });
+    document.getElementById('quiz-score').classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ====== Mind Map ======
+  const mmData = {
+    noon: { title: 'النون الساكنة والتنوين', body: 'أربعة أحكام: الإظهار الحلقي (٦ حروف)، الإدغام بغنة وبلا غنة (٦ حروف)، الإقلاب (الباء)، الإخفاء الحقيقي (١٥ حرفاً).', btn: 'اذهب للقسم' },
+    meem: { title: 'الميم الساكنة', body: 'ثلاثة أحكام: الإخفاء الشفوي (عند الباء)، إدغام المتماثلين (عند ميم أخرى)، الإظهار الشفوي (عند باقي الحروف).', btn: 'اذهب للقسم' },
+    medd: { title: 'المد والقصر', body: 'أنواع المد: طبيعي (حركتان)، متصل (٤-٥)، منفصل (٢-٤-٥)، لازم (٦ واجب)، عارض (٢-٤-٦)، بدل، لين، صلة.', btn: 'اذهب للقسم' },
+    makharij: { title: 'المخارج والصفات', body: '١٧ مخرجاً في ٥ مواضع: الجوف، الحلق (٣)، اللسان (١٠)، الشفتان (٢)، الخيشوم (١). والصفات: لازمة وعارضة.', btn: 'اذهب للقسم' },
+    qalqalah: { title: 'القلقلة', body: 'حروفها: قطب جد (ق ط ب ج د). مراتبها أربع: أعلاها في الطاء، أوسطها في الجيم، ثم الثلاثة، ثم المتحرك.', btn: 'اذهب للقسم' },
+    ra: { title: 'أحكام الراء', body: '٤ حالات: مرققة قولاً واحداً (مكسورة / بعد كسر أصلي)، مفخمة قولاً واحداً (مفتوحة/مضمومة)، جائزتان (﴿مِصرَ﴾ وقفاً).', btn: 'اذهب للقسم' },
+    lam: { title: 'اللامات السواكن', body: 'لام أل: شمسية (إدغام في ١٤ حرفاً) وقمرية (إظهار في ١٤ حرفاً). لام الفعل: تُدغم في اللام والراء فقط.', btn: 'اذهب للقسم' },
+    waqf: { title: 'الوقف والابتداء', body: 'أنواع الوقف: تام (أجوده) — كافٍ — حسن — قبيح (لا يجوز). البسملة بين السور: ٣ أوجه جائزة وواحد ممتنع.', btn: 'اذهب للقسم' },
+  };
+
+  function mmClick(id) {
+    const d = mmData[id];
+    if (!d) return;
+    const box = document.getElementById('mm-info');
+    document.getElementById('mm-info-title').textContent = '📌 ' + d.title;
+    document.getElementById('mm-info-body').textContent = d.body;
+    const btn = document.getElementById('mm-info-btn');
+    btn.textContent = d.btn + ' ←';
+    btn.onclick = () => showSection(id);
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ====== Animate bars ======
+  function animateBars() {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      const w = bar.style.width;
+      bar.style.width = '0';
+      requestAnimationFrame(() => {
+        setTimeout(() => { bar.style.width = w; }, 100);
+      });
+    });
+  }
+</script>
+</body>
+</html>
